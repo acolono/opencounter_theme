@@ -2,145 +2,57 @@
 //
 // This is the Primary menu.
 //
-// default                          - base (vertically)
-// .menu-primary--horizontally         - view menu horizontally aligned with dropdowns.
-//
-//
 // Markup:
-//   <div class="menu-primary {$modifiers}">
-//      <ul>
-//        <li class="is-active"><a href="" title="Products">Products</a>
-//          <ul>
-//            <li><a href="" title="Blög">Blög</a></li>
-//            <li class="is-active"><a href="" title="Shöp">Shöp</a></li>
-//            <li><a href="" title="Ideas for other services?">Ideas for other services?</a>
-//              <ul>
-//                <li><a href="" title="submit">submit</a></li>
-//                <li><a href="" title="the real shit!">the real shit!</a></li>
-//              </ul>
-//            </li>
-//          </ul>
-//        </li>
-//        <li><a href="" title="About us">About us</a></li>
-//        <li><a href="" title="Contact">Contact</a></li>
-//      </ul>
-//    </div>
+//  <ul class="menu-primary">
+//  <li><a href="#">Home</a></li>
+//  <li><a href="#">Counters</a></li>
+//  <li><a href="#">About</a></li>
+//  </ul>
 //
 // Styleguide 2.30
 
-$menu-primary-font-weight: 100;
-
 .menu-primary {
   @include reset-list();
-  font-size: $font-size-l;
-  font-weight: $menu-primary-font-weight;
+
+  background: $color-primary;
+
+  display: flex;
+
+  flex-flow: row wrap;
+  justify-content: flex-end;
   a {
     text-decoration: none;
-  }
-
-  // Main Menu Item
-  word-wrap: break-word;
-
-  > ul {
-  }
-
-  // First Hierarchy
-  > ul > li > ul {
-    display: none;
-  }
-
-  > ul a {
     display: block;
-    padding: rhythm(.5);
-    //background: $color-primary;
-    color: $color-black;
-
-    //default color when hovering
-    &:hover {
-      background: $color-white--dark;
-      color: $color-primary;
-      text-decoration: none;
-    }
+    padding: 1em;
+    color: white;
   }
-
-  // Second Hierarchy
-  ul > li > ul > li a {
-    background: $color-primary;
-    color: $color-white;
-  }
-
-  > ul > li:hover > ul {
-    display: block;
-  }
-
-  > ul > li > ul > li {
-    position: relative;
-  }
-
-  // third Hierarchy
-  > ul > li > ul > li > ul {
-    display: none;
-  }
-
-  > ul > li > ul > li:hover > ul {
-    display: block;
-    position: relative;
-    left: 0;
-  }
-
-  > ul > li > ul > li > ul > li a {
-    background: $color-primary;
-    color: $color-white;
-  }
-
-  // add a symbol to menu items with have a sub hierarchy
-  li > a:after {
-    content: "\0000a0+";
-  }
-
-  li > a:only-child:after {
-    content: "";
-  }
-
-  //add a space for the first hierarchy to the elements so it looks indented.
-  ul > li > ul > li a {
-    //padding-left: 30px;
-  }
-
-  //add a space for the second hierarchy to the elements so it looks even more indented.
-  > ul > li > ul > li > ul > li a {
-    //padding-left: 50px;
-  }
-  .is-active > a {
-    font-weight: $primary-font-weight;
+  a:hover {
+    background: darken($color-primary, 2%);
   }
 }
 
+@include breakpoint($l-to-tablet) {
+  .menu-primary {
+    li {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+}
 
-//modifier to align all menu items menu--horizontally.
-.menu-primary--horizontally  {
-  > ul a {
-    white-space: nowrap;
+@include breakpoint($l-to-phablet) {
+  .menu-primary {
+    flex-flow: column wrap;
+    padding: 0;
   }
 
-  > ul,
-  > ul > li {
-    float: left;
+  .menu-primary a {
+    text-align: center;
+    padding: rhythm(.5);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
   }
 
-  > ul > li > ul {
-    position: absolute;
-  }
-
-  > ul > li:hover > ul {
-    display: block;
-    //top: 0;
-  }
-
-  > ul > li > ul > li:hover > ul {
-    position: absolute;
-    left: 100%;
-    display: block;
-    top: 0;
+  .menu-primary li:last-of-type a {
+    border-bottom: none;
   }
 }
