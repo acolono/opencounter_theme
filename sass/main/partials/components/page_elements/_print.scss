@@ -1,0 +1,43 @@
+@media print {
+  body {
+    padding: 0;
+  }
+
+  section {
+    display: block;
+    page-break-before: always;
+  }
+
+  pre code {
+    page-break-after: always;
+  }
+
+  p a,
+  code,
+  pre {
+    word-wrap: break-word;
+  }
+
+  // sass-lint:disable no-ids
+  .messages,
+  #navbar-administration,
+  aside,
+  footer {
+    display: none;
+  }
+  // sass-lint:enable no-ids
+
+  pre a[href]:after {
+    content: "";
+  }
+
+  pre abbr[title]:after {
+    content: "";
+  }
+
+  pre .ir a:after,
+  pre a[href^="javascript:"]:after,
+  pre a[href^="#"]:after {
+    content: "";
+  }
+}

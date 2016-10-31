@@ -1,0 +1,29 @@
+$layout-default: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: after, //when using "after" last gutter would need to be removed.
+  debug: (
+    image: hide, // "show" or "hide"
+    //color: blue,
+    output: background,
+    toggle: top right,
+  ),
+);
+
+// special pixel perfect layout
+$layout-three: (
+  columns: 3,
+  column-width: 300px,
+  gutters: 10px/300px,
+  math: static,
+  output: isolation,
+  gutter-position: after,
+  debug: (
+    image: hide, // "show" or "hide"
+    color: #0000ff,
+    output: overlay,
+    toggle: bottom left,
+  ),
+);

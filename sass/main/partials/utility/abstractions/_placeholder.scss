@@ -1,0 +1,17 @@
+//alternative: https://gist.github.com/chriseppstein/923780
+//more info: http://davidwalsh.name/html5-placeholder-css
+
+
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}

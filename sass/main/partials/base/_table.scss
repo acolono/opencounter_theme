@@ -1,0 +1,30 @@
+// Table
+//
+// Markup:
+// <table>
+//  <thead>
+//    <tr>
+//      <th>Firstname</th>
+//      <th>Lastname</th>
+//      <th>Points</th>
+//    </tr>
+//  </thead>
+//  <tbody>
+//    <tr>
+//      <td>Dries</td>
+//      <td><a href="#">Buytaert</a></td>
+//      <td>94</td>
+//    </tr>
+//    <tr>
+//      <td>Drupal</td>
+//      <td>Icon</td>
+//      <td>100</td>
+//    </tr>
+// </table>
+//
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+}

@@ -1,0 +1,23 @@
+// This file will be injected in the sc5 styleguide header. Place css here that is only for the styleguide and not
+// for components. Before changing something here check if there is a variable in _sc5_variables.scss.
+
+// Load variables and stuff.
+@import "../main/partials/utility/dependencies";
+@import "../main/partials/utility/variables";
+@import "../main/partials/utility/abstractions";
+
+// Base
+
+@import "base/base";
+
+// Branding
+//
+// Defining the default styling for how basic html element should look in all occurrences on the page. <br />
+// No class names etc.
+//
+// Styleguide 0.0
+
+@import "branding/logo";
+@import "branding/icon";
+@import "branding/color";
+@import "branding/typography";

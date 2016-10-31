@@ -1,0 +1,341 @@
+// Tooltip
+//
+// Default Tooltip position is "top". Could be changed via css variable. <br/>
+// Remove useless position classes via variable to save css code before going live!
+//
+// Markup:
+// <span class="tooltip" data-tooltip="This is the Tooltip Content!">Top <small>(set as default)</small></span>,
+// <span class="tooltip--right" data-tooltip="This is the Tooltip Content!">Right</span>,
+// <span class="tooltip--bottom" data-tooltip="This is the Tooltip Content!">Bottom</span>,
+// <span class="tooltip--left" data-tooltip="This is the Tooltip Content!">Left</span> <br />
+// <span class="tooltip tooltip-multiline" data-tooltip="This is the Tooltip Content!">Top Multiline <small>(set as default)</small></span>,
+// <span class="tooltip--right tooltip-multiline" data-tooltip="This is the Tooltip Content!">Right Multiline</span>,
+// <span class="tooltip--bottom tooltip-multiline" data-tooltip="This is the Tooltip Content!">Bottom Multiline</span>,
+// <span class="tooltip--left tooltip-multiline" data-tooltip="This is the Tooltip Content!">Left Multiline</span>
+// <br />
+// <br />
+// <p><a class="tooltip tooltip-multiline" data-tooltip="We don't apply a Tooltip link style!">this is a link</a></p>
+// <br />
+// <div class="tooltip" data-tooltip="Link on an Image">
+//   <img src=images/styleguide/ao_person.jpg width=100px height=auto />
+// </div>
+//
+// sg-wrapper:
+// <div style="padding: 80px">
+//   <sg-wrapper-content/>
+// </div>
+//
+// Styleguide 6.9
+
+// Set features to false and reduce the CSS output of Tooltip to only what's needed.
+$tooltip-left:               true !default; //set to false if you don't use it
+$tooltip-right:              true !default; //set to false if you don't use it
+$tooltip-top:                true !default; //set to false if you don't use it
+$tooltip-bottom:             true !default; //set to false if you don't use it
+$tooltip-multiline:          true !default; //set to false if you don't use it
+
+// Set default Position for .tooltip class so you don't need to use modifiers.
+$tooltip-default-position:    top !default; //top, right, bottom, left
+
+// Variables
+$tooltip-height: rhythm(1);
+$tooltip-arrow-size: 6px; //if you change the arrow size, the tooltip looks broken
+$tooltip-color: $color-gray--dark;
+$tooltip-text-color: $color-white;
+$tooltip-font-size: 13px;
+$tooltip-font-family: $primary-font-family;
+
+$tooltip-multiline-width: 140px;
+
+// generate multiline tooltips
+@mixin multiline {
+  height: auto;
+  width: $tooltip-multiline-width;
+  padding: $tooltip-height/2;
+  line-height: $tooltip-height - 3px;
+  white-space: normal;
+  text-align: left;
+}
+
+//
+// Defaults
+//
+
+@mixin tooltip-base {
+  &:not(a):not(div) {
+    border-bottom: 1px dashed currentColor;
+    cursor: help;
+  }
+
+  // movement on hover
+  &:before,
+  &:after {
+    transition: all .1s linear;
+  }
+}
+
+[data-tooltip] {
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+
+  &:before,
+  &:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 999999;
+    box-sizing: content-box;
+  }
+
+  // Tooltip Arrow
+  &:before {
+    content: "";
+    border: $tooltip-arrow-size solid transparent;
+  }
+
+  // Tooltip Box
+  &:after {
+    height: $tooltip-height;
+    padding: $tooltip-height/2 $tooltip-height/2 0;
+    font-size: $tooltip-font-size;
+    font-family: $tooltip-font-family;
+    line-height: $tooltip-height/2;
+    content: attr(data-tooltip);
+    white-space: nowrap;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+
+    &:before,
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+//
+// Positions
+//
+
+// Left & Right
+@mixin tooltip-left-right {
+  &:before {
+    bottom: 50%;
+    margin-bottom: $tooltip-arrow-size * -1 + 1;
+  } // -5px
+
+  &:after {
+    bottom: 50%;
+    margin-bottom: $tooltip-height/-1.5;
+  }
+
+  &.tooltip-multiline {
+    &:before,
+    &:after {
+      transform: translateY(50%);
+      //filter: blur(0px);
+      margin-bottom: 0;
+    }
+
+    &:before {
+      margin-bottom: 0;
+    }
+  }
+}
+@mixin tooltip-right {
+  &:before {
+    left: 100%;
+    margin-left: -10px;
+    border-right-color: $tooltip-color;
+  }
+
+  &:after {
+    left: 100%;
+    margin-left: 2px;
+    background-color: $tooltip-color; color: $tooltip-text-color;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      transform: translateX(10px);
+    }
+  }
+  @if $tooltip-multiline == true {
+    &.tooltip-multiline {
+      &:hover {
+        &:before,
+        &:after {
+          transform: translate(10px, 50%);
+        }
+      }
+    }
+  }
+}
+
+// Right
+@if $tooltip-right == true {
+  .tooltip--right {
+    @include tooltip-base;
+    @include tooltip-left-right;
+    @include tooltip-right;
+  }
+}
+
+// Left
+@mixin tooltip-left {
+  &:before {
+    right: 100%;
+    margin-right: -10px;
+    border-left-color: $tooltip-color;
+  }
+
+  &:after {
+    right: 100%;
+    margin-right: 2px;
+    background-color: $tooltip-color; color: $tooltip-text-color;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      transform: translateX(-10px);
+    }
+  }
+  @if $tooltip-multiline == true {
+    &.tooltip-multiline {
+      &:hover {
+        &:before,
+        &:after {
+          transform: translate(-10px, 50%);
+        }
+      }
+    }
+  }
+}
+@if $tooltip-left == true {
+  .tooltip--left {
+    @include tooltip-base;
+    @include tooltip-left-right;
+    @include tooltip-left;
+  }
+}
+
+// Top & Bottom
+@mixin tooltip-top-bottom {
+  &:before,
+  &:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:after {
+    width: auto;
+  }
+}
+
+// Top
+@mixin tooltip-top {
+  &:before {
+    bottom: 100%;
+    margin-bottom: -15px;
+    border-top-color: $tooltip-color;
+  }
+
+  &:after {
+    bottom: 100%;
+    margin-bottom: -3px;
+    background-color: $tooltip-color;
+    color: $tooltip-text-color;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      transform: translate(-50%, -4px);
+    }
+  }
+}
+@if $tooltip-top == true {
+  .tooltip--top {
+    @include tooltip-base;
+    @include tooltip-top-bottom;
+    @include tooltip-top;
+  }
+}
+
+// Bottom
+@mixin tooltip-bottom {
+  &:before {
+    top: 100%;
+    margin-top: -15px;
+    border-bottom-color: $tooltip-color;
+  }
+
+  &:after {
+    top: 100%;
+    margin-top: -3px;
+    background-color: $tooltip-color; color: $tooltip-text-color;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      transform: translate(-50%, 4px);
+    }
+  }
+}
+@if $tooltip-bottom == true {
+  .tooltip--bottom {
+    @include tooltip-base;
+    @include tooltip-top-bottom;
+    @include tooltip-bottom;
+  }
+}
+
+// Default Tooltip Orientation
+.tooltip {
+  @include tooltip-base;
+}
+
+
+@if $tooltip-default-position == top {
+  .tooltip {
+    @include tooltip-top-bottom;
+    @include tooltip-top;
+  }
+}
+
+@if $tooltip-default-position == right {
+  .tooltip {
+    @include tooltip-left-right;
+    @include tooltip-right;
+  }
+}
+
+@if $tooltip-default-position == bottom {
+  .tooltip {
+    @include tooltip-top-bottom;
+    @include tooltip-bottom;
+  }
+}
+
+@if $tooltip-default-position == left {
+  .tooltip {
+    @include tooltip-left-right;
+    @include tooltip-left;
+  }
+}
+
+// Multiline Tooltip
+@if $tooltip-multiline == true {
+  .tooltip-multiline {
+    &:after {
+      @include multiline();
+    }
+  }
+}

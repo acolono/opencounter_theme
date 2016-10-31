@@ -1,0 +1,21 @@
+// Menu Secondary
+//
+// This is the footer menu.
+//
+// Markup:
+// <ul class="menu-secondary">
+//   <li><a href="impressum">Impressum</a></li>
+//   <li><a href="contact">Contact</a></li>
+//   <li><a href="agb">AGB</a></li>
+// </ul>
+//
+// Styleguide 2.33
+
+.menu-secondary {
+  @include reset-list();
+  display: inline-flex;
+
+  li:not(:last-of-type) {
+    margin-right: rhythm(1);
+  }
+}

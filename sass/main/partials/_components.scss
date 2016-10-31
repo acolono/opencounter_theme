@@ -1,0 +1,66 @@
+/*Importing components*/
+
+/* We don't need every component for every project. So we try to have a folder
+structure that allows us to enable/disable importing project wise. So for
+we have a folder for all commmerce stuff.
+And to have at least some structure we also try to separate small elements and
+real components from stylings for full pages and full entities:
+global->entities->pages.
+*/
+
+
+// Atoms
+//
+// Small elements which could be used in other components.
+// An atom does not need an own "__item" class name when used in a component.
+//
+// Styleguide 1
+
+@import "components/atoms/branding";
+@import "components/atoms/button";
+@import "components/atoms/avatar";
+@import "components/atoms/tag";
+@import "components/atoms/badge";
+@import "components/atoms/ribbon";
+@import "components/atoms/form";
+@import "components/atoms/drop";
+@import "components/atoms/icon";
+@import "components/atoms/svg";
+@import "components/atoms/facebook-button";
+@import "components/atoms/menu-toggle";
+
+
+// Page Elements
+//
+// Various components for this project.
+//
+// Styleguide 2
+
+@import "components/page_elements/header";
+@import "components/page_elements/menu-primary";
+@import "components/page_elements/menu-secondary";
+@import "components/page_elements/hoverslide";
+@import "components/page_elements/nav-skip-link";
+@import "components/page_elements/nav-back-to-top";
+@import "components/page_elements/nav-breadcrumb";
+@import "components/page_elements/nav-pager";
+
+
+
+//refactor this:
+@import "components/page_elements/messages";
+@import "components/page_elements/print"; //where to put this?
+
+
+// Admin
+//
+// Styleguide 5
+@import "components/admin/counter";
+@import "components/admin/counter-add";
+
+
+
+// Pages
+//
+// Styleguide 10
+@import "components/pages/admin";

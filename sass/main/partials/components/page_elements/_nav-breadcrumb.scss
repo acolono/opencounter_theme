@@ -1,0 +1,69 @@
+// Navigation Breadcrumb
+//
+// Markup:
+// <nav class="breadcrumb" role="menubar" aria-label="breadcrumb">
+//   <li role="menuitem"><a href="#">Home</a></li>
+//   <li role="menuitem"><a href="#">Second Level</a></li>
+//   <li role="menuitem" role="button" aria-disabled="true"><a class="is-disabled" href="#">Third Level</a></li>
+//   <li role="menuitem" class="is-current"><span href="#">Current Item</span></li>
+// </nav>
+//
+// Styleguide 2.44
+
+// Spacing between items
+$breadcrumb-item-space: rhythm(.25) !default;
+
+/// Font size of breadcrumb links
+$breadcrumb-font-size: 12px !default;
+
+// Color breadcrumb links
+$breadcrumb-item-color: $color-primary !default;
+
+// Color active breadcrumb
+$breadcrumb-item-color-current: $color-black !default;
+
+// Color active breadcrumb
+$breadcrumb-separator-color: $color-primary !default;
+
+.breadcrumb {
+  border-top: 10px $color-primary solid;
+  padding: rhythm(.5) 0; //add extra space to the links before after.
+
+  @include clearfix;
+  @include reset-list();
+  letter-spacing: 0.2em;
+
+
+  // Item wrapper
+  li {
+    float: left;
+    color: $breadcrumb-item-color;
+    @include set-font-size($breadcrumb-font-size);
+    //cursor: default;
+    text-transform: uppercase;
+
+    &:not(:last-child)::after {
+      color: $breadcrumb-separator-color;
+      content: ">";
+      margin: 0 $breadcrumb-item-space;
+    }
+  }
+
+  // Links
+  a {
+    color: $breadcrumb-item-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .is-disabled {
+    @include element-disabled;
+  }
+
+  .is-current {
+    color: $breadcrumb-item-color-current;
+  }
+}

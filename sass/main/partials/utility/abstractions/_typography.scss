@@ -1,0 +1,127 @@
+
+@mixin primary-font {
+  font-family: $primary-font-family;
+  font-weight: $primary-font-weight;
+  letter-spacing: $primary-letter-spacing;
+}
+
+@mixin secondary-font {
+  font-family: $secondary-font-family;
+  font-weight: $secondary-font-weight;
+  letter-spacing: $secondary-letter-spacing;
+}
+
+@mixin tertiary-font {
+  font-family: $tertiary-font-family;
+  font-weight: $tertiary-font-weight;
+  letter-spacing: $tertiary-letter-spacing;
+}
+
+//
+// Mixin to display first letter as dropcap. Needs some work.
+//
+@mixin dropcap {
+  &:first-letter {
+    font-size: 4em;
+    line-height: 1em;
+    float: left;
+    padding: 0.1em 8px 0 0;
+    margin-left: -6px;
+    font-weight: bold;
+  }
+}
+
+//
+// Reset lists.
+//
+@mixin reset-list($current: false) {
+  $selector: if($current, "&, ul, li", "ul, li");
+
+  #{$selector} {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+//
+// Cut Text and ad ... Just works on single line of Text with width set.
+//
+@mixin truncate-text($overflow: ellipsis) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+//
+// for iconfonts, or thin fonts, it sometimes is usefull to add this to get it extra crispy.
+//
+@mixin font-smoothing() {
+  // Font antialising on Mac OS X
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Text Highlight "Modifier"
+//
+// Markup:
+// <h2 class="text-highlight">
+//   <span>
+//     If highlighted text wraps it gets extra spaces on the left and right of each line.
+//   </span>
+//   <br />
+//   <p>
+//     If highlighted text wraps it gets extra spaces on the left and right of each line.
+//   </p>
+// </h2>
+//
+// Styleguide 6.10
+
+//
+// Highlight your Text with a background color which is just under the text.
+//
+$text-highlight-padding: rhythm(.5);
+$text-highlight-color: rgba($color-primary, 1);
+
+@mixin text-highlight {
+  display: inline;
+  background: $text-highlight-color;
+  color: $color-white;
+  padding: rhythm(.25) 0;
+  box-decoration-break: clone;
+  box-shadow: $text-highlight-padding 0 0 $text-highlight-color, -$text-highlight-padding 0 0 $text-highlight-color;
+}
+
+// Text Highlight Demo
+.text-highlight {
+  @include set-font-size(30px);
+  @include set-leading(2);
+
+  span,
+  p {
+    @include text-highlight();
+  }
+}
+
+//
+// Section Headline
+//
+@mixin section-headline {
+  //text-align: right;
+  @include set-font-size($font-size-m);
+  color: $color-primary;
+  text-transform: uppercase;
+  font-family: $primary-font-family;
+  font-style: normal;
+  letter-spacing: 0.2rem;
+  padding: 0 0 rhythm(.5) 0;
+  margin: 0; //remove global h2 margin
+}
+
+
+//
+// Remove Selection
+//
+@mixin no-select {
+  user-select: none;
+}

@@ -1,0 +1,43 @@
+//
+// Required style for Input
+//
+
+@mixin required($modus: circle) {
+  @if $modus == triangle {
+    background-image: linear-gradient(45deg, transparent, transparent 50%, $color-error 50%, $color-error 100%);
+    background-position: top right;
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+  } @else if $modus == border {
+    border-color: $color-error;
+  } @else {
+    background-image: radial-gradient($color-error 20%, transparent 25%);
+    background-size: 2em 2em;
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+}
+
+//
+// Default styling for Input
+//
+@mixin form-input {
+  @include set-font-size($form-font-size);
+  border-radius: 0;
+  min-height: $form-height;
+  background-color: $form-background-color;
+  border: $form-border;
+  margin: 0;
+  padding: 0 $form-padding;
+  font-family: $form-font-family;
+  letter-spacing: $form-font-letter-spacing;
+  color: $color-form-font;
+
+  &:focus {
+    background: $color-white;
+  }
+
+  &:required {
+    @include required();
+  }
+}

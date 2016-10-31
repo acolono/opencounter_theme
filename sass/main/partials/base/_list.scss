@@ -1,0 +1,33 @@
+// Lists
+//
+// Base styling for lists
+//
+// Markup:
+//   <ol>
+//   <li>Line 1</li>
+//   <li>Line 2</li>
+//   <li>Line 3</li>
+//   </ol>
+// this is just a line of text...
+//   <ul>
+//   <li>Line 1</li>
+//   <li>Line 2</li>
+//   <li>Line 3</li>
+//   </ul>
+// this is just a line of text...
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  list-style-image: none;
+  list-style-type: decimal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  list-style-image: none;
+  list-style-type: disc;
+}

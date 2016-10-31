@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,500|Roboto:100,300|Roboto+Slab");
+
+$color-text-shadow: $color-black !default;
+
+$font-size-xxl: 48px;
+$font-size-xl: 36px;
+$font-size-l: 26px;
+$font-size: 20px;
+$font-size-m: 16px;
+$font-size-s: 12px;
+$font-size-xs: 8px;
+
+
+
+$base-line-height: 25px; // used in vertical_rhythm_rem.scss. this is our vertical rhythm.
+$base-font-size: 20px; // used in vertical_rhythm_rem.scss
+
+
+//
+// primary font
+//
+
+$primary-font-family: "Roboto", sans-serif;
+$primary-font-weight: 300;
+$primary-letter-spacing: 0;
+
+
+//
+// secondary font
+//
+$secondary-font-family: "Roboto Slab", serif;
+$secondary-font-weight: 400;
+$secondary-letter-spacing: .05rem;
+
+
+//
+// tertiary font
+//
+
+$tertiary-font-family: "Roboto Condensed", sans-serif;
+$tertiary-font-weight: 300;
+$tertiary-letter-spacing: 0;
+
+
+// placeholders.
+$placeholdercolor: #999999 !default;
+$placeholderstyle: italic;
+
+
+// textshadow
+// use: @include text-shadow;
+$default-text-shadow-color: rgba($color-text-shadow, 0.1);
+$default-text-shadow-blur: 9px;
+$default-text-shadow-v-offset: 0;

@@ -1,0 +1,54 @@
+// Facebook Button
+//
+// Styleguide 1.130
+
+
+// Like Button
+//
+// this Button adds the script version (used inside of the Styleguide you have to verify your click)
+//
+// Markup:
+// <script>(function(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+// js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.6&appId=1573921326254142";
+// fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));</script>
+// <div class="facebook-like-button fb-like" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+//
+// Styleguide 1.130.1
+
+.facebook-like-button {
+}
+
+
+// Like Button iframe
+//
+// this has no "Popup" when clicked and you have to set the url which should be shared in the code <br />(used inside of the Styleguide you have to verify your click)
+//
+// default                        - Default FB Like Button
+// .facebook-like-button--big      - Big
+//
+// Markup:
+// <span class="facebook-like-button {$modifiers}">
+//   <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Facolono%2Fplugins%2F&width=82&layout=button&action=like&show_faces=false&share=false&height=65&appId=1573921326254142" width="82" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+// </span>
+//
+// Styleguide 1.130.2
+
+.facebook-like-button--big {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  width: 164px;
+
+  iframe {
+    transform: scale(2, 2);
+    transform-origin: center center;
+    top: 10px;
+    left: 41px;
+    position: absolute;
+    height: 20px;
+  }
+}

@@ -1,0 +1,28 @@
+// Counter
+//
+// Userprofile picture. This is the default avatar.
+//
+// Markup:
+// <a class="counter" href="#edit">
+//   <h2 class="counter__name">CounterName</h2>
+//   <span class="counter__value">103</span>
+// </a>
+//
+// Styleguide 5.1
+
+.counter {
+  background-color: $color-white--dark;
+  padding: rhythm(1);
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  &__name {
+    @include set-font-size($font-size-l);
+    font-family: $tertiary-font-family;
+    margin-bottom: 0;
+  }
+  &__value {
+    @include set-font-size($font-size-xl);
+    font-family: $secondary-font-family;
+  }
+}

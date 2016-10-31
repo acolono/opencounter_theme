@@ -1,0 +1,85 @@
+
+@mixin layout-list($extra: none) {
+  @include clearfix;
+
+  > * {
+    display: block;
+    margin-bottom: rhythm(1);
+  }
+}
+
+// Mixin which is used in the layout-gallery mixin.
+@mixin layout-gallery-helper($size: big) {
+  margin-bottom: rhythm(1);
+  @if $size == small {
+    @include gallery(6 of 12);
+    @include breakpoint($l-mobile-up) {
+      @include gallery(4 of 12);
+    }
+
+    @include breakpoint($l-tablet-up) {
+      @include gallery(3 of 12);
+    }
+
+    @include breakpoint($l-desktop-up) {
+      @include gallery(2 of 12);
+    }
+  } @else {
+    @include breakpoint(400px) {
+      @include gallery(6 of 12);
+    }
+
+    @include breakpoint($l-tablet-up) {
+      @include gallery(4 of 12);
+    }
+
+    @include breakpoint($l-desktop-up) {
+      @include gallery(3 of 12);
+    }
+  }
+}
+// Main Gallery Layout mixin which includes the layout-gallery-helper mixin to work with a selector or none.
+@mixin layout-gallery($size: big, $selector: false) {
+  @include clearfix;
+
+  @if $selector == false {
+    & > * {
+      @include layout-gallery-helper($size);
+    }
+  } @else {
+    & #{$selector} {
+      @include layout-gallery-helper($size);
+    }
+  }
+}
+
+//todo: remove this and add it in the layout component.
+// default class
+.layout-gallery {
+  @include layout-gallery($selector: "article");
+}
+
+//
+// Special Box Style / used e.g. in .text--box component
+//
+@mixin layout-box {
+  background-color: $color-white--dark;
+  padding: rhythm(1);
+}
+
+//
+// Styleguide Example Block
+//
+@mixin sg-example-block($modus: dark) {
+  min-height: 100px;
+  width: 100%;
+  @if $modus == light {
+    color: $color-primary;
+    @include striped-bg(rgba(255, 255, 255, 0.6));
+  } @else {
+    color: $color-white;
+    @include striped-bg($color-primary);
+  }
+  text-align: center;
+  padding-top: rhythm(1);
+}

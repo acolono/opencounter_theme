@@ -1,0 +1,26 @@
+// Fieldset
+//
+// Style for Fieldsets and Reset of Browser Default style.
+//
+// Markup:
+// <fieldset class="fieldset">
+//   <legend>Legend</legend>
+//   <div>This is content inside of a fieldset</div>
+// </fieldset>
+//
+// Styleguide 4.13
+
+@mixin fieldset {
+  margin-left: 0;
+  margin-right: 0;
+  padding: rhythm(.5);
+  border: 1px solid $color-border;
+  legend {
+    padding: 0 rhythm(.5);
+    color: $color-legend;
+  }
+}
+
+.fieldset {
+  @include fieldset();
+}

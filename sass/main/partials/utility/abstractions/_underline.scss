@@ -1,0 +1,115 @@
+// Underline
+//
+// Markup:
+// <p>This is a ext with a <a class="custom">fancy link</a> which looks great!<br/>
+// And here you have a second line to see how it looks like with more text.</p>
+// <h1>This is a big heading but the <a class="sg-custom-link">fancy link</a> works too!</h1>
+// To show you the difference, this is a default <a style="text-decoration:underline">not so fancy</a> link.
+//
+// Styleguide 6.99
+
+
+$link-color: $color-primary !default;
+$link-color-active: $color-secondary !default;
+$link-underline-color: $link-color !default;
+$link-underline-color-active: $link-color-active !default;
+$link-underline-width: 1px !default;
+$link-underline-offset: 2px !default;
+$link-break-underline: true !default;
+$link-break-underline-color: #fff !default;
+
+//you can use this mixin to remove underline style
+@mixin remove-underline {
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@mixin underline($color: $link-underline-color, $weight: $link-underline-width, $offset: $link-underline-offset) {
+  background-image: linear-gradient(to top, transparent, transparent $offset, $color $offset, $color ($offset + $weight), transparent ($offset + $weight));
+}
+
+@mixin link-underline {
+  transition: color 200ms ease;
+  text-decoration: none;
+  position: relative;
+
+  @if $link-break-underline {
+    text-shadow: -1px -1px 0 $link-break-underline-color, 1px -1px 0 $link-break-underline-color, -1px 1px 0 $link-break-underline-color, 1px 1px 0 $link-break-underline-color;
+  }
+  @include underline($link-color);
+
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @include underline($link-color, 0.5);
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    @include underline($link-color-active);
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+      @include underline($link-color-active, 0.5);
+    }
+  }
+}
+
+a.sg-custom-link {
+  @include link-underline();
+}
+
+
+// Underline Animated
+//
+// Markup:
+// This is a <a class="underline-animated">Text with animated underline</a>. And it works!
+//
+// Styleguide 6.99.1
+
+@mixin link-animated {
+  display: inline-block;
+  position: relative;
+  font-family: $secondary-font-family;
+
+  color: $color-gray;
+  text-decoration: none;
+
+  &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 3px;
+    bottom: -2px;
+    width: 0;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+  }
+
+  &:hover:after {
+    width: 100%;
+    background: $color-primary;
+  }
+
+  // remove global styles for underline mixin
+  &:link,
+  &:visited {
+    color: $color-gray;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $color-black;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+a.underline-animated {
+  @include link-animated();
+}

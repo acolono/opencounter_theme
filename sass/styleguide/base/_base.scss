@@ -1,0 +1,120 @@
+// This file contains base styling for the styleguide. Can be split up more once.
+
+// Set vertical rhythm base font-size and line-height. This is important to make rems work in the styleguide.
+@include establish-baseline;
+
+// Set background color for component partials. Default is white.
+.sg.sg-section .sg.sg-section-partial {
+}
+
+.sg.sg-section-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.sg.sg-section-header h1 .sg-section-source {
+  float: none;
+}
+
+// We want more width for the sections.
+.sg.sg-wrapper {
+  max-width: 1040px;
+  background: #fff;
+  box-sizing: border-box;
+}
+//hide the live edit sidebar
+.sg-design {
+  display: none;
+}
+
+ul.sg-top-nav-menu,
+ul.sg-top-nav-menu ul {
+  list-style-image: none;
+}
+
+body.sg {
+  background: #fff;
+}
+
+//
+// Styleguide Example Block
+//
+@mixin sg-example-block($modus: dark) {
+  height: 100px;
+  width: 100%;
+
+  @if $modus == light {
+    color: $color-primary;
+    @include striped-bg(rgba(255, 255, 255, 0.6));
+  } @else {
+    color: $color-white;
+    @include striped-bg($color-primary);
+  }
+
+  text-align: center;
+  padding-top: rhythm(1);
+}
+
+.sg-example-block {
+  @include sg-example-block;
+}
+
+.sg-example-block--light {
+  @include sg-example-block(light);
+}
+
+// We need this class to assign base font styling to every sg component.
+.body-styling {
+  font-family: $primary-font-family;
+  color: $primary-font-color;
+  font-weight: $primary-font-weight;
+
+  ::selection {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  ::-moz-selection {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  // add establish-baseline mixin manually:
+  $new-font-size: $base-font-size / $browser-default-font-size * 100%;	// eg. 16px ÷ 16px * 100%
+  // Only set the font size if it differs from the browser default
+
+  @if $new-font-size != 100% {
+    font-size: $new-font-size;
+  }
+  @include set-leading(1);
+}
+
+body.sg:after,
+body.sg:before {
+  content: '';
+  height: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+body.sg:after {
+  background-color: $color-primary;
+  z-index: 9999;
+  @include breakpoint($l-mobile-up) {
+    width: 390px;
+  }
+  @include breakpoint($l-phablet-up) {
+    width: 549px;
+  }
+  @include breakpoint($l-tablet-up) {
+    width: 769px;
+  }
+  @include breakpoint($l-desktop-up) {
+    width: 1219px;
+  }
+}
+body.sg:before {
+  background-color: $color-white--dark;
+  z-index: 9998;
+  width: 100%;
+}

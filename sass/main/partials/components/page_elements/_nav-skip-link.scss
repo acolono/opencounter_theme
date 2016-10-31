@@ -1,0 +1,39 @@
+// Navigation Skip Link
+//
+// If you hit tab on a page, the Skip Link will be visible, weher you can jump directly to the main content.
+//
+// Markup:
+// <a href="#main-content" class="skip-link visually-hidden focusable">
+//   Skip to main content
+// </a>
+//
+// Styleguide 2.40
+
+.skip-link {
+  overflow: auto;
+  margin: rhythm(.5);
+  text-align: center;
+  z-index: 999;
+  @include set-font-size(25px);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  &:before {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    content: "\2193 \2003";
+  }
+
+  &:after {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    content: "\2003 \2193";
+  }
+}
+
+a.skip-link:focus,
+a.skip-link:active {
+  text-decoration: none;
+  color: $color-white;
+  background-color: $color-black;
+}
+

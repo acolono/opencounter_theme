@@ -1,0 +1,130 @@
+<svg id="ao_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" enable-background="new 0 0 256 256">
+            <style>
+                .ao_logo__box {
+                    fill: #aec90b;
+                    stroke: #aec90b;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 6;
+                    fill-opacity: 0;
+                    stroke-dasharray: 1000;
+                    stroke-dashoffset: 1000;
+                    -webkit-animation:
+                    box-line .5s 0 ease forwards,
+                    box-bg .2s .5s linear forwards;
+                    animation:
+                    box-line .5s 0 ease forwards,
+                    box-bg .2s .5s linear forwards;
+                }
+                .ao_logo__a {
+                    stroke:#fff;
+                    stroke-width:6;
+                    fill: none;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    fill-opacity: 0;
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 240;
+                    -webkit-animation:
+                    ao_logo__drawline 2s 1s ease forwards;
+                    animation:
+                    ao_logo__drawline 2s 1s ease forwards;
+                }
+                .ao_logo__points {
+                    stroke:#fff;
+                    stroke-width:6;
+                    fill: #fff;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    fill-opacity: 0;
+                    stroke-opacity: 0;
+                }
+                .ao_logo__point_1 {
+                    -webkit-animation:
+                    ao_logo__show 0s 1.8s ease forwards;
+                    animation:
+                    ao_logo__show 0s 1.8s ease forwards;
+                }
+                .ao_logo__point_2 {
+                    animation:
+                    ao_logo__show 0s 2s ease forwards;
+                    -webkit-animation:
+                    ao_logo__show 0s 2s ease forwards;
+                }
+
+                .ao_logo__o {
+                    stroke:#fff;
+                    stroke-width:6;
+                    fill: none;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    fill-opacity: 0;
+                    stroke-dasharray: 370;
+                    stroke-dashoffset: 370;
+                    -webkit-animation:
+                    ao_logo__drawline 2s 2.1s ease forwards;
+                    animation:
+                    ao_logo__drawline 2s 2.1s ease forwards;
+                }
+
+
+                @-webkit-keyframes box-line {
+                    to {
+                        stroke-dashoffset: 0;
+                    }
+                }
+                @keyframes box-line {
+                    to {
+                        stroke-dashoffset: 0;
+                    }
+                }
+
+                @-webkit-keyframes box-bg {
+                    to {
+                        fill-opacity: 1;
+                    }
+                }
+                @keyframes box-bg {
+                    to {
+                        fill-opacity: 1;
+                    }
+                }
+
+                @-webkit-keyframes ao_logo__drawline {
+                    to {
+                        stroke-dashoffset: 0;
+                    }
+                }
+                @keyframes ao_logo__drawline {
+                    to {
+                        stroke-dashoffset: 0;
+                    }
+                }
+
+                @-webkit-keyframes ao_logo__show {
+                    to {
+                        stroke-opacity: 1;
+                        fill-opacity: 1;
+                    }
+                }
+                @keyframes ao_logo__show {
+                    to {
+                        stroke-opacity: 1;
+                        fill-opacity: 1;
+                    }
+                }
+            </style>
+
+            <rect class="ao_logo__box" x="3" y="3" width="250" height="250"/>
+
+            <polyline class="ao_logo__a" points="38,159.2 73,98.6 108,159.2 73,98.6"/>
+
+            <g class="ao_logo__points">
+                <circle class="ao_logo__point_1" cx="127.8" cy="115.3" r="3"/>
+                <circle class="ao_logo__point_2" cx="127.8" cy="140.7" r="3"/>
+            </g>
+
+			<circle class="ao_logo__o" cx="184.8" cy="128" r="33.2"/>
+            <image src="logo.jpg" width="100" height="100" />
+            <img width="40" height="40" alt="a:o" src="data:image/gif;base64,R0lGODlhUABQAMQAAMPYRuvywbTOF83fZbnSJ9flhPr88PX54OHsoubvstLidPD10dzok77VNsjbVf///6/LCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABQAFAAAAX/ICSOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+Cw2AQol8elQeLBbj8Wg+HCQOgBFu1DYI9nHxxAA2wJPApsBgV1JAQKB2wMPgIGbQA6DIMCKQKXDwg9BQ8HCG85gg8KLaYFOwRsAJIPcS1nJrCQLqYNOmsBIoYGmSsBgyajCzG8OQBsihCOtypuJQKuMa0PzTXPJMvYK5OhaaQya6g2v8Ejw70qDQkJuiSjqzKC7DSw5ovVMsOVMg3C1bh07ASoAzP80WBT49q/WpP0vVA4gyGNYYRSCAIWg2KMgAZoOGC2Ao+nEwQQuiDIBmHeDHs0HNFT0S1eCUcCRwgqGMOlDFAcWSQzIY0EtQcPXVyz+QKWLBYEJgEqMezBvRGjrrYY2tMqjIO1FChINyLqqRemkrropnaFAJkwDMVK9Shhp3oP6MAY9YABWROg7uLV20/wC04HBvyFMADnSRlwZ3RjycIBTqsICjComldijAIZaYBezELAgD5uQhUg/YUAgAKwAVBGQ7u27du4c+vezbu379/AgwsfTry48ePIkytfzrx3CAA7" />
+        </svg>

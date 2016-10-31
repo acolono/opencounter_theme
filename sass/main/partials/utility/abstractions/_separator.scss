@@ -1,0 +1,59 @@
+
+$separator-color: $color-gray--light;
+$separator-width: rhythm(4);
+$separator-height: $border-size;
+$separator-style: solid;
+
+
+@mixin separator-content() {
+  content: "";
+  display: block;
+  border-top: $separator-height solid $separator-color;
+  width: $separator-width;
+  margin: rhythm(.5) 0;
+}
+
+@mixin separator($location: after) {
+  @if $location == before {
+    &:before {
+      @include separator-content;
+    }
+  } @else {
+    &:after {
+      @include separator-content;
+    }
+  }
+}
+
+.sg-saparator--after {
+  @include separator;
+}
+
+.sg-saparator--before {
+  @include separator(before);
+}
+
+
+// bis separator
+
+@mixin separator-big($location: after) {
+  @if $location == before {
+    border-top: $separator-height $separator-style $separator-color;
+    padding-top: rhythm(1);
+    margin-top: rhythm(1);
+  } @else {
+    border-bottom: $separator-height $separator-style $separator-color;
+    padding-bottom: rhythm(1);
+    margin-bottom: rhythm(1);
+  }
+}
+
+.sg-saparator-big--after {
+  @include separator-big;
+}
+
+.sg-saparator-big--before {
+  @include separator-big(before);
+}
+
+

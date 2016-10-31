@@ -1,0 +1,16 @@
+@mixin circle-image-wrapper($image-width: 200px) {
+  display: block;
+  height: $image-width;
+  width: $image-width;
+  @include border-radius($image-width);
+  border: 3px solid #f3f3f3;
+
+  &:hover {
+    border-color: #e3e3e3;
+  }
+
+  img {
+    @include border-radius($image-width);
+  }
+}
+

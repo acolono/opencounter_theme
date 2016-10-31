@@ -1,0 +1,40 @@
+// Logo
+//
+// Styleguide 0.1
+
+// Square
+//
+// Markup:
+// <div class="sg-logo">
+//   <img src="/images/styleguide/logo-ao.png">
+// </div>
+// <div class="sg-logo-animated">
+//   <sg-insert>1.2000.1</sg-insert>
+// </div>
+//
+// Styleguide 0.1.1
+.sg-logo {
+  display: inline-block;
+  img {
+    height: 300px;
+    width: auto;
+  }
+}
+
+.sg-logo-animated {
+  display: inline-block;
+  svg {
+    height: 300px;
+    width: auto;
+  }
+}
+
+
+// Word
+//
+// Markup:
+// <div class="sg-logo-word">
+//   <img src="/images/styleguide/logo-acolono-word.jpg">
+// </div>
+//
+// Styleguide 0.1.2

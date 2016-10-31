@@ -1,0 +1,137 @@
+// Messages
+//
+// Drupal notifications
+//
+// .message--status           - Message severity -- Informational message.
+// .message--warning          - Message severity -- Warning conditions.
+// .message--error            - Message severity -- Error conditions.
+//
+// Markup:
+// <div class="message {$modifiers}">
+//   <a class="message--close" href="" title="Close">close</a>
+//   <h2 class="element-invisible">Statusmeldung</h2>
+//   Die Seite <em class="placeholder">Impressum</em> wurde aktualisiert.
+// </div>
+//
+// Styleguide 2.29
+// Import relevant animation library mixins.
+@import "../../utility/abstractions/animate/properties";
+// @import "../../utility/abstractions/animate/_zooming-exits/_zoomOutRight";
+// @import "../../utility/abstractions/animate/_zooming-entrances/_zoomIn";
+@import "../../utility/abstractions/animate/_bouncing-entrances/bounceIn";
+
+$message-info-bg-color: $color-gray--light;
+$message-warning-bg-color: rgba(204, 107, 14, 0);
+$message-error-bg-color: $color-error;
+
+.message {
+  color: darken($color-legend, 20%);
+  border: 0;
+  margin: 0;
+  padding: 0 rhythm(2) 0 rhythm(1);
+  @include set-font-size(14px, 1);
+  @include rhythm-spacing(1, 1, .5, .5);
+  // sass-lint:disable mixin-name-format
+  @include bounceIn(
+    $duration: 1s,
+    $delay: .5s,
+    $function: ease
+  );
+  // sass-lint:enable mixin-name-format
+  display: block;
+  background-color: $color-white--dark;
+
+  em { //break long url if it is too long
+    word-wrap: break-word;
+  }
+}
+
+//todo: refactor status messages to get error type. also refactor the twigfile
+
+.message--status {
+  background-color: $message-info-bg-color;
+  color: $color-black;
+
+  h2 {
+    color: $color-black;
+  }
+  background-image: none;
+  position: relative;
+
+  .message--close {
+    color: darken($message-info-bg-color, 10%);
+  }
+
+  &:before {
+    //@include icon-font('\f05a');
+    //@include font-size(2);
+    position: absolute;
+    left: .3em;
+    color: #fff;
+    @include centerer-v;
+  }
+}
+
+.message--warning {
+  background-color: $message-warning-bg-color;
+  color: $color-black;
+
+  h2 {
+    color: $color-black;
+  }
+  background-image: none;
+  position: relative;
+
+  .message--close {
+    color: darken($message-warning-bg-color, 10%);
+  }
+}
+
+.message--warning:before {
+  position: absolute;
+  left: .3em;
+  color: #fff;
+  @include centerer-v;
+}
+
+.message--error {
+  background-color: $message-error-bg-color;
+  color: $color-white;
+
+  h2 {
+    color: $color-white;
+  }
+  background-image: none;
+  position: relative;
+
+  .message--close {
+    color: darken($message-error-bg-color, 10%);
+  }
+
+  &:before {
+    position: absolute;
+    left: .3em;
+    color: #fff;
+    @include centerer-v;
+  }
+}
+
+.message--close {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-black;
+  }
+}
+
+.message--closed {
+  //@include zoomOutRight(
+  //$duration: 1s,
+  //$delay: 0s,
+  //$function: ease);
+  display: none;
+  opacity: 0;
+}

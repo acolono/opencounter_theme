@@ -1,0 +1,704 @@
+// Form
+//
+// Input, Radio, Checkbox, ...
+//
+// Styleguide 1.10
+
+// Input
+//
+// Markup:
+// <div class="form">
+//   <label class="form__label">
+//    Label of the form<br>
+//   <input class="form__input" type="text">
+//   </label>
+//   <p class="form__description">this is a description</p>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    Label of the form<br>
+//   <span class="form__prefix">http://</span><input class="form__input" type="text">
+//   </label>
+//   <p class="form__description">this is a description</p>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    Label of the form<br>
+//   <input class="form__input" type="text"><span class="form__prefix">cm</span>
+//   </label>
+//   <p class="form__description">this is a description</p>
+// </div>
+//
+// Styleguide 1.10.1
+
+.form {
+  &__prefix,
+  &__suffix {
+    background-color: $form-border-color;
+    color: $color-white;
+  }
+  &__prefix {
+    padding: ($form-padding / 2) ($form-padding - $form-border-size) ($form-padding / 2) $form-padding;
+  }
+  &__prefix {
+    padding: ($form-padding / 2) $form-padding ($form-padding / 2) ($form-padding - $form-border-size);
+  }
+}
+
+// Input Status
+//
+// Single Line Input.
+//
+// Markup:
+// <div class="form">
+//   <label class="form__label">
+//    empty<br>
+//   <input class="form__input" type="text">
+//   </label>
+//   <p class="form__description">this is a description</p>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    with placeholder<br>
+//   <input class="form__input" type="text" placeholder="with placeholder">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    with content<br>
+//   <input class="form__input" type="text" value="with content">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    required<br>
+//   <input class="form__input" type="text" required>
+//   </label>
+// </div>
+// <div class="form is-disabled" >
+//   <label class="form__label">
+//    disabled component<br>
+//   <input class="form__input" type="text" disabled>
+//   </label>
+//   <p class="form__description">this is a description</p>
+// </div>
+//
+// Styleguide 1.10.2
+
+.form {
+  &__description {
+    @include set-font-size(12px);
+    color: $color-gray;
+  }
+}
+
+
+// Input Types
+//
+// Single Line Input.
+//
+// Markup:
+// <div class="form">
+//   <label class="form__label">
+//    text<br>
+//   <input class="form__input" type="text" value="some text">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    password<br>
+//   <input class="form__input" type="password" value="123456">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    number<br>
+//   <input class="form__input" type="number" value="42">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    email<br>
+//   <input class="form__input" type="email" value="hello@acolono.com">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    url<br>
+//   <input class="form__input" type="url" value="www.acolono.com">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    tel<br>
+//   <input class="form__input" type="tel" value="+4313051030">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    search<br>
+//   <input class="form__input" type="search" value="type Google into Google">
+//   </label>
+// </div>
+// <form class="form">
+//   <label class="form__label">
+//    search with button <br>
+//   <input class="form__input" type="search" results="5" name="s" placeholder="Search..." autosave="unique">
+//   <button> Go </button>
+//   </label>
+// </form>
+// <div class="form">
+//   <label class="form__label">
+//    date<br>
+//   <input class="form__input" type="date" value="2015-08-07">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    datetime<br>
+//   <input class="form__input" type="datetime" value="2015-08-07 04:45">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    datetime-local<br>
+//   <input class="form__input" type="datetime-local" value="2015-08-07T04:45:23">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    month<br>
+//   <input class="form__input" type="month" value="2015-08">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    week<br>
+//   <input class="form__input" type="week" value="2015-W32">
+//   </label>
+// </div>
+// <div class="form">
+//   <label class="form__label">
+//    time<br>
+//   <input class="form__input" type="time" value="04:45:23">
+//   </label>
+// </div>
+//
+// Styleguide 1.10.3
+
+input[type="text"].form__input {
+  @include form-input();
+}
+
+input[type="password"].form__input {
+  @include form-input();
+  font: small-caption;
+  font-size: 24px;
+}
+
+input[type="number"].form__input {
+  @include form-input();
+}
+
+input[type="email"].form__input {
+  @include form-input();
+}
+
+input[type="url"].form__input {
+  @include form-input();
+}
+
+input[type="tel"].form__input {
+  @include form-input();
+}
+
+input[type="search"].form__input {
+  @include form-input();
+  &::-webkit-search-decoration,
+  &::-webkit-search-results-button {
+    display: none;
+  }
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-decoration {
+  }
+  box-sizing: border-box;
+}
+
+input[type="date"].form__input {
+  @include form-input();
+}
+
+input[type="datetime"].form__input {
+  @include form-input();
+}
+
+input[type="datetime-local"].form__input {
+  @include form-input();
+}
+
+input[type="month"].form__input {
+  @include form-input();
+}
+
+input[type="week"].form__input {
+  @include form-input();
+}
+
+input[type="time"].form__input {
+  @include form-input();
+}
+
+// Textarea
+//
+// Markup:
+// <form class="form">
+//   <p>
+//     <label class="form__label">
+//      textarea<br>
+//     <textarea class="form__input" rows="3" cols="50" placeholder="Placeholder Text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</textarea>
+//     </label>
+//   </p>
+// </form>
+//
+// Styleguide 1.10.4
+
+textarea.form__input {
+  @include form-input();
+  @include set-font-size($form-font-size);
+
+  border: $form-border;
+  padding: $form-padding;
+  background-color: $form-background-color;
+  font-family: $form-font-family;
+  letter-spacing: $form-font-letter-spacing;
+  color: $color-form-font;
+}
+
+
+// Checkbox
+//
+// Markup:
+//   <div class="checkbox">
+//     <input type="checkbox" id="edit-node-options-status" value="status" class="form-checkbox" checked>
+//     <label class="option" for="edit-node-options-status">Checked</label>
+//   </div>
+//   <div class="checkbox">
+//     <input type="checkbox" id="input-required" value="status" class="form-checkbox" required>
+//     <label class="option" for="input-required">Required</label>
+//   </div>
+//   <div class="checkbox">
+//     <input type="checkbox" id="input-disabled" value="status" class="form-checkbox" disabled>
+//     <label class="option" for="input-disabled">Disabled</label>
+//   </div>
+//
+// Styleguide 1.10.5
+
+
+.checkbox {
+  input[type="checkbox"] {
+    display: none;
+    &:checked + label:before {
+      background: image-url("check.svg") no-repeat right transparent;
+      background-size: $form-checkbox-size $form-checkbox-size;
+      background-position: center center;
+    }
+    &:required + label:after {
+      content: " *";
+      font-weight: bold;
+      color: #e32;
+    }
+    &:disabled + label {
+      @include element-disabled;
+    }
+  }
+  label {
+    @include set-font-size($form-font-size);
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0 $form-margin;
+    font-family: $form-font-family;
+    letter-spacing: $form-font-letter-spacing;
+    color: $color-form-font;
+    &:before {
+      content: "";
+      border: $form-border-size solid $color-border;
+      display: inline-block;
+      width: $form-checkbox-size;
+      height: $form-checkbox-size;
+      margin-right: 5px;
+      text-align: center;
+      margin-bottom: ($form-checkbox-size / 3) * -1;
+      position: relative;
+      box-sizing: border-box;
+    }
+  }
+}
+
+
+// Radio
+//
+// Radio elements with some options.
+//
+// Markup:
+//   <div class="radio">
+//     <input type="radio" id="option1" value="0" name="radio" class="form__radio" checked>
+//     <label class="form__label" for="option1">Checked</label>
+//   </div>
+//   <div class="radio">
+//     <input type="radio" id="option2" value="1" name="radio" class="form__radio" required>
+//     <label class="form__label" for="option2" >Required</label>
+//   </div>
+//   <div class="radio">
+//     <input type="radio" id="option3" value="2" name="radio" class="form__radio" disabled>
+//     <label class="form__label" for="option3">Disabled</label>
+//   </div>
+//
+// Styleguide 1.10.6
+
+
+.radio {
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none;
+    &:checked + label:before {
+      background-color: $color-form-main;
+    }
+    &:required + label:after {
+      content: " *";
+      font-weight: bold;
+      color: #e32;
+    }
+    &:disabled + label {
+      @include element-disabled;
+    }
+  }
+
+  label {
+    @include set-font-size($form-font-size);
+    line-height: 100%;
+    cursor: pointer;
+    vertical-align: text-middle;
+    display: inline-block;
+    margin: $form-margin 0;
+    font-family: $form-font-family;
+    letter-spacing: $form-font-letter-spacing;
+    color: $color-form-font;
+    &:before {
+      content: "";
+      border: $form-border-size solid $color-border;
+      box-shadow: inset 0 0 0 ($form-border-size * 2) $color-white;
+      border-radius: 50%;
+      color: rgba(255, 255, 255, 0);
+      display: inline-block;
+      width: $form-radio-size;
+      height: $form-radio-size;
+      margin-right: 5px;
+      text-align: center;
+      background-color: #fff;
+      margin-bottom: ($form-radio-size / 3) * -1;
+      position: relative;
+      box-shadow: inset 0 0 0 ($form-border-size * 2) $color-white;
+    }
+  }
+}
+
+
+// Select
+//
+// Select element as dropdown.<br />
+// on IE9 there is a Arrow... we can"t hide it with pure CSS on IE10 it works.
+//
+// Markup:
+// <form class="select">
+//   <p>
+//     <label>
+//      select<br>
+//       <select>
+//         <optgroup label="group 1">
+//           <option>option 1</option>
+//           <option>option 2</option>
+//         </optgroup>
+//         <optgroup label="group 2">
+//           <option>option 3</option>
+//         </optgroup>
+//       </select>
+//     </label>
+//   </p>
+//   <p>
+//     <label>
+//      select (multiple attr)<br>
+//       <select multiple>
+//         <optgroup label="group 1">
+//           <option>option 1</option>
+//           <option>option 2</option>
+//         </optgroup>
+//         <optgroup label="group 2">
+//           <option>option 3</option>
+//         </optgroup>
+//       </select>
+//     </label>
+//   </p>
+//   <p>
+//     <label>
+//      select (size attr)<br>
+//       <select multiple size="3">
+//         <optgroup label="group 1">
+//           <option>option 1</option>
+//           <option>option 2</option>
+//         </optgroup>
+//         <optgroup label="group 2">
+//           <option>option 3</option>
+//         </optgroup>
+//       </select>
+//     </label>
+//   </p>
+// </form>
+//
+// Styleguide 1.10.7
+
+$select-icon: 30px;
+
+.select select {
+  -webkit-appearance: none; // Removes default chrome and safari style
+  -moz-appearance:    none; // Removes Default Firefox style (there is still a bug in this... https://bugzilla.mozilla.org/show_bug.cgi?id=649849
+  appearance:         none;
+  &::-ms-expand { // Removes Default IE style (working for IE10 and above.)
+    display: none;
+  }
+  @include set-font-size($form-font-size);
+  font-family: $form-font-family;
+  letter-spacing: $form-font-letter-spacing;
+  color: $color-form-font;
+  border: $form-border-size solid $form-border-color;
+  cursor: pointer;
+
+  /*target Internet Explorer 9 and Internet Explorer 10:*/
+  @media screen and (min-width: 0\0) {
+    background: none;
+    padding-right: $form-padding;
+  }
+
+  &:not([multiple]) {
+    display: inline-block;
+    min-height: $form-height;
+    margin: 0;
+    padding: $form-padding ($select-icon + $form-padding) $form-padding $form-padding;
+    border-radius: 0;
+    overflow: hidden;
+    background: image-url("arrow.svg") no-repeat right $form-background-color;
+    background-color: $form-background-color;
+    background-size: $select-icon $select-icon;
+    background-position: right $form-margin center;
+  }
+
+  &[multiple] {
+    padding: $form-padding;
+
+    option {
+      //todo: design this component
+      background-color: #ffff00;
+      color: #ff0000;
+    }
+  }
+}
+
+// Datalist
+//
+// support is not good jet <br />
+// http://caniuse.com/#search=datalist
+//
+// Markup:
+// <form class="datalist">
+//   <label>
+//     datalist <br />
+//     <input list="datalist">
+//     <datalist id="datalist">
+//       <option value="option 1">
+//       <option value="option 2">
+//       <option value="option 3">
+//     </datalist>
+//   </label>
+// </form>
+//
+// Styleguide 1.10.8
+
+.datalist input[list="datalist"] {
+  @include form-input();
+}
+
+// Color
+//
+// not supported in Internet Explorer / Edge.
+//
+// Markup:
+// <form class="color">
+//   <label>
+//     color<br>
+//     <input type="color" value="#b2cb07" autocomplete>
+//   </label>
+// </form>
+//
+// Styleguide 1.10.9
+
+.color input[type="color"] {
+  min-width: $form-height;
+  height: $form-height;
+  -webkit-appearance: none;
+  border: $form-border;
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  &::-webkit-color-swatch {
+    border: none;
+  }
+}
+
+
+// Range
+//
+// Markup:
+// <form class="range">
+//   <label>
+//    Range Element<br>
+//   <input type="range">
+//   </label>
+// </form>
+//
+// Styleguide 1.10.10
+
+
+$range-space: rhythm(1);
+$range-track-height: $form-border-size;
+$range-track-color: $color-gray;
+$range-thumb-color: $color-primary;
+$range-thumb-size: rhythm(1.5);
+
+
+
+.range input[type="range"] {
+  -webkit-appearance: none;
+  margin: $range-space 0;
+  width: 100%;
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: $range-track-height;
+    background: $range-track-color;
+    cursor: pointer;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-color: transparent;
+    background: $range-thumb-color;
+    height: $range-thumb-size;
+    width: $range-thumb-size;
+    margin-top: (( $range-thumb-size / 2 ) - ( $range-track-height / 2)  ) * -1;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: $range-track-height;
+    background: $range-track-color;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    border: none;
+    background: $range-thumb-color;
+    height: $range-thumb-size;
+    width: $range-thumb-size;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &::-ms-track {
+    color: transparent;
+    background: transparent;
+    border-color: transparent;
+    border-width: 8px 0;
+    width: 100%;
+    height: $range-track-height;
+    cursor: pointer;
+  }
+
+  &::-ms-fill-lower {
+    background: $range-track-color;
+  }
+
+  &::-ms-fill-upper {
+    background: $range-track-color;
+  }
+
+  &::-ms-thumb {
+    border-color: transparent;
+    background: $range-thumb-color;
+    height: $range-thumb-size;
+    width: $range-thumb-size;
+    border-radius: 50%;
+  }
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-runnable-track {
+    }
+
+    &::-ms-fill-lower {
+      background: $range-track-color;
+    }
+
+    &::-ms-fill-upper {
+      background: $range-track-color;
+    }
+  }
+}
+
+
+// File
+//
+// Markup:
+// <form class="file">
+//   <label>
+//     file<br>
+//     <input type="file">
+//   </label>
+// </form>
+//
+// Styleguide 1.10.11
+
+.file input[type="file"] {
+}
+
+// Submit
+//
+// Markup:
+// <form class"submit">
+//     <label>
+//       Submit<br>
+//       <input type="submit">
+//     </label>
+// </form>
+//
+// Styleguide 1.10.12
+
+.submit input[type="submit"] {
+}
+
+// Reset
+//
+// Markup:
+// <form class="reset">
+//   <label>
+//     Reset<br>
+//     <input type="reset">
+//   </label>
+// </form>
+//
+// Styleguide 1.10.13
+
+.reset input[type="reset"] {
+}

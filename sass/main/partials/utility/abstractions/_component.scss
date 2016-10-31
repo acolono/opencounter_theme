@@ -1,0 +1,26 @@
+$component-width-max: 1200px !default;
+$component-width-default: 800px !default;
+
+@mixin component-style($max-width: $component-width-default) {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: rhythm(2);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+$component-width-small: 320px !default;
+$component-width-small-max: 520px !default;
+
+//refactor this to have one mixin with parameter
+@mixin component-style-small($max-width: $component-width-small) {
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: $max-width;
+  @include breakpoint($l-tablet-up) {
+    max-width: $component-width-small-max;
+  }
+}

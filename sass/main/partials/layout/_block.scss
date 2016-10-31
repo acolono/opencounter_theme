@@ -1,0 +1,18 @@
+// Block
+//
+// Markup:
+// <div class="block">
+//   <h2 class="block__title">Title</h2>
+//   <div class="sg-example-block">Block Content</div>
+// </div>
+//
+// Styleguide 4.80
+
+.block {
+  h2.block__title {
+    border-bottom: $border-size $color-border solid;
+    text-transform: uppercase;
+    margin-bottom: rhythm(.5);
+    @include set-font-size(20px);
+  }
+}

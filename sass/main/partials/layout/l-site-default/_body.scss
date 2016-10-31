@@ -1,0 +1,37 @@
+// Body
+//
+// Markup:
+// <body>
+//   <div class="sg-example-block">Content</div>
+// </body>
+//
+// Styleguide 4.1
+
+body {
+  @include layout($layout-default);
+  background-color: $body-color;
+  margin: 0;
+}
+
+// sass-lint:disable all
+
+// 2015-08-07 04:45
+#nico + #elsa {
+  &:before {
+    content: "❤️";
+  }
+
+  &:first-child {
+    #arno {
+      position: absolute !important;
+
+      body {
+        $arno-weight: 3595g;
+        width: 36.5cm;
+        height: 53cm;
+      }
+    }
+  }
+}
+
+// sass-lint:enable all

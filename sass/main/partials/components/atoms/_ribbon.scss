@@ -1,0 +1,79 @@
+// Ribbon
+//
+// data-ribbon="new"                          - New
+// data-ribbon="sold"                         - Sold
+// data-ribbon="free"                         - Free
+//
+// Markup:
+//  <div {$modifiers} class="sg-example-block--light">Content children element</div>
+//
+// Styleguide 1.6
+
+$ribbon-wrapper-background: $color-white;
+$ribbon-font-size: $font-size-s;
+$ribbon-position: left; // "left" or "right"
+
+$ribbon-styles: ("new", $color-error, "New") ("sold", $color-gray--light, "Sold") ("free", $color-ao-green, "Free");
+
+[data-ribbon] {
+  position: relative;
+
+  &:before {
+    content: "text";
+    font-size: $ribbon-font-size;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 7em;
+    position: absolute;
+
+    @if $ribbon-position == left {
+      top: .74em;
+      left: -1.74em;
+      transform: rotate(-45deg);
+    }
+
+    @if $ribbon-position == right {
+      top: .76em;
+      right: -.3em;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:after {
+    content: "";
+    background: transparent;
+    border-top: 1em solid;
+    border-color: $ribbon-wrapper-background;
+    display: block;
+    width: 5em;
+    pointer-events: none;
+    position: absolute;
+    height: 5em;
+    top: -1em;
+
+    @if $ribbon-position == left {
+      left: -1em;
+      border-left: 1em solid $ribbon-wrapper-background;
+    }
+
+    @if $ribbon-position == right {
+      right: 0;
+      border-right: 1em solid $ribbon-wrapper-background;
+    }
+  }
+}
+
+@each $ribbon-item in $ribbon-styles {
+  [data-ribbon=#{nth($ribbon-item, 1)}]:before {
+    content: nth($ribbon-item, 3);
+    background: nth($ribbon-item, 2);
+
+    @if lightness(nth($ribbon-item, 2)) < 73% {
+      color: $color-white;
+    } @else {
+      color: darken(nth($ribbon-item, 2), 45);
+    }
+  }
+}

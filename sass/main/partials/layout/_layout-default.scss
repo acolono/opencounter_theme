@@ -1,0 +1,160 @@
+.layout-sidebar-first,
+.layout-sidebar-second {
+  &> * {
+    margin-bottom: rhythm(1);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//max width for layout-content with sidebars
+.layout-with-first-sidebar .layout-content,
+.layout-with-second-sidebar .layout-content {
+  max-width: 630px;
+}
+
+
+// Layout Default
+//
+// with no Sidebars
+//
+// Markup:
+// <main role="main">
+//   <div class="layout-default layout-with-no-sidebar">
+//     <div class="layout-content-header">
+//       <div class="sg-example-block">Header Content</div>
+//     </div>
+//     <div class="layout-content-container">
+//       <div class="layout-content">
+//         <div class="sg-example-block--light">Main Content</div>
+//       </div>
+//     </div>
+//     <div class="layout-content-footer">
+//       <div class="sg-example-block">Footer Content</div>
+//     </div>
+//   </div>
+// </main>
+//
+// Styleguide 4.110
+
+.layout-default {
+  background-color: $body-color;
+
+  .layout-content-header,
+  .layout-content-footer,
+  .layout-content-container {
+    @include clearfix;
+  }
+
+  .layout-content-header,
+  .layout-sidebar-first,
+  .layout-sidebar-second,
+  .layout-content {
+    padding-bottom: rhythm(1);
+  }
+}
+
+.l-main {
+  //padding: 0 $content-padding-mobile;
+}
+
+.layout-content-container {
+  //max-width: 920px;
+}
+
+@include breakpoint($l-panels-beside) {
+  .layout-default {
+    .layout-sidebar-first {
+      @include layout($layout-three);
+      @include span(1);
+    }
+
+    .layout-sidebar-second {
+      @include layout($layout-three);
+      @include span(1);
+    }
+  }
+}
+
+
+// Layout Default
+//
+// with First Sidebar
+//
+// Markup:
+// <main role="main">
+//   <div class="layout-default layout-with-first-sidebar">
+//     <div class="layout-content-header">
+//       <div class="sg-example-block">Header Content</div>
+//     </div>
+//     <div class="layout-content-container">
+//       <div class="layout-content">
+//         <div class="sg-example-block--light">Main Content</div>
+//       </div>
+//       <div class="layout-sidebar-first">
+//         <div class="sg-example-block">Sidebar First Container</div>
+//       </div>
+//     </div>
+//     <div class="layout-content-footer">
+//       <div class="sg-example-block">Footer Content</div>
+//     </div>
+//   </div>
+// </main>
+//
+// Styleguide 4.110.1
+
+@include breakpoint($l-panels-beside) {
+  .layout-default {
+    &.layout-with-first-sidebar {
+      .layout-content {
+        @include layout($layout-three);
+        @include span(2 of 3 omega);
+      }
+    }
+  }
+}
+
+// Layout Default
+//
+// with Second Sidebar
+//
+// Markup:
+// <main role="main">
+//   <div class="layout-default layout-with-second-sidebar">
+//     <div class="layout-content-header">
+//       <div class="sg-example-block">Header Content</div>
+//     </div>
+//     <div class="layout-content-container">
+//       <div class="layout-content">
+//         <div class="sg-example-block--light">Main Content</div>
+//       </div>
+//       <div class="layout-sidebar-second">
+//         <div class="sg-example-block">Sidebar Second Container</div>
+//       </div>
+//     </div>
+//     <div class="layout-content-footer">
+//       <div class="sg-example-block">Footer Content</div>
+//     </div>
+//   </div>
+// </main>
+//
+// Styleguide 4.110.2
+
+@include breakpoint($l-panels-beside) {
+  .layout-default {
+    &.layout-with-second-sidebar {
+      .layout-content {
+        @include layout($layout-three);
+        @include span(2);
+
+      }
+
+      .layout-sidebar-second {
+        @include layout($layout-three);
+        @include omega;
+      }
+    }
+  }
+}

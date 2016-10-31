@@ -1,0 +1,42 @@
+// Tag
+//
+// Markup:
+//  <div class="tag">
+//    <img src="/images/styleguide/logo-ao.png" alt="Tag Image" />
+//      Acolono
+//  </div>
+//  <div class="tag">
+//    Wordpress
+//  </div>
+//  <div class="tag">
+//    Ghost
+//  </div>
+//
+// Styleguide 1.4
+
+$tag-color: $color-gray--dark;
+$tag-color-background: $color-gray--light;
+$tag-margin: rhythm(.25);
+$tag-height: rhythm(1);
+
+.tag {
+  display: inline-block;
+  height: $tag-height;
+  font-size: $font-size-s;
+  font-weight: 500;
+  color: $tag-color;
+  line-height: $tag-height;
+  padding: 0 ($tag-height / 2);
+  border-radius: ($tag-height / 2);
+  background-color: $tag-color-background;
+  margin-bottom: $tag-margin;
+  margin-right: $tag-margin;
+
+  img {
+    float: left;
+    margin: 0 rhythm(.25) 0 (-($tag-height / 2));
+    height: $tag-height;
+    width: $tag-height;
+    border-radius: 50%;
+  }
+}

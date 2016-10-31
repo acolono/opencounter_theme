@@ -1,0 +1,275 @@
+//
+// Button
+//
+// Styleguide 1.2
+
+// Buttons
+//
+// A button used for call-to-actions.
+//
+// .button                         - Primary button style.
+// .is-disabled                    - Dims the button to indicate it cannot be used.
+// .button--expand                 - Full width button.
+// .button--extend                 - Centered horizontally.
+//
+// Markup:
+// <a href="#" class="button {$modifiers}">Link</a> <button href="#" class="button {$modifiers}">Link</button>
+//
+// Styleguide 1.2.1
+
+// Buttons Secondary
+//
+// A button used for call-to-actions.
+//
+// .button-secondary               - Primary button style.
+// .is-disabled                    - Dims the button to indicate it cannot be used.
+// .button-secondary--expand                 - Full width button.
+// .button-secondary--extend                 - Centered horizontally.
+//
+// Markup:
+// <a href="#" class="button-secondary {$modifiers}">Link</a> <button href="#" class="button-secondary {$modifiers}">Link</button>
+//
+// Styleguide 1.2.2
+
+$button-radius: 0;
+$button-background: transparent;
+
+// Colors
+$color-button-primary: $color-secondary;
+$color-button-secondary: $color-primary;
+$color-button-hover: $color-primary;
+
+
+a.button,
+button.button {
+  @include button-style-base();
+  @include button-style-ghost();
+}
+
+//
+// Modifiers
+//
+a.button,
+button.button {
+  &.button--expand {
+    @include button-expand();
+  }
+
+  &.button--extend {
+    @include button-extend();
+  }
+}
+
+//
+// Modifiers
+//
+a.button-secondary,
+button.button-secondary {
+  @include button-style-base();
+  background-color: $color-secondary;
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+}
+
+//
+// Modifiers
+//
+
+a.button-secondary,
+button.button-secondary {
+  &.button-secondary--expand {
+    @include button-expand();
+  }
+
+  &.button-secondary--extend {
+    @include button-extend();
+  }
+}
+
+// States:
+
+.button,
+.button--secondary {
+  &.is-disabled {
+    @include element-disabled;
+  }
+}
+
+
+// Buttons Icon
+//
+// A Button with Icon and Text. With data-icon="xxx" Icons could be added to the element.
+//
+// Markup:
+// <a href="#" class="button-icon">This button has no icon defined</a> <button href="#" class="button-icon">This button has also no icon defined, but has a really long text</button>
+// <a href="#" class="button-icon" data-icon="edit">This button has a data-icon set in html</a> <button href="#" class="button-icon" data-icon="edit">This button has a data-icon set in html and also a really long text</button>
+//
+//
+// Styleguide 1.2.3
+
+a.button-icon,
+button.button-icon {
+  @include set-font-size(16px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  position: relative;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-align: left;
+  color: $color-black;
+  text-decoration: none;
+  margin-bottom: rhythm(1);
+  padding-left: rhythm(3);
+  min-height: rhythm(2) + 2 * $border-size;
+  line-height: normal;
+  letter-spacing: 0.2em;
+
+  &:before {
+    @include button-style-base();
+    content: "";
+    width: rhythm(2);
+    height: rhythm(2) + 2 * $border-size;
+    margin-bottom: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: image-url("arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $color-secondary;
+    background-size: 52px 52px;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:hover:before {
+    background-color: $color-primary;
+    background-position: 2px center; // animation of defaut arrow icon
+  }
+
+  &[data-icon]:hover:before {
+    background-position: center center;
+    background-size: 56px 56px; // we zoom the icons on hover
+  }
+}
+
+a.button-icon,
+button.button-icon {
+
+  &[data-icon="mapmarker"]:before {
+    background-image: image-url("mapmarker.svg");
+  }
+
+  &[data-icon="schedule"]:before {
+    background-image: image-url("schedule.svg");
+  }
+}
+
+
+// Button Close
+//
+// e.g. for Modals
+//
+// default                     - Default
+// .button-close--secondary    - secondary Style
+//
+// Markup:
+// <a href="#" class="button-close {$modifiers}">close</a>
+//
+// sg-wrapper:
+// <div style="background: #ccc; padding:20px">
+//   <sg-wrapper-content/>
+// </div>
+//
+// Styleguide 1.2.4
+
+$button-close-size: rhythm(2);
+$button-close-size-icon: rhythm(0.8);
+$button-close-border-size: $border-size;
+$button-close-border-color: $color-black;
+$button-close-background-color: $color-white;
+
+$button-close-border-color-secondary: $color-white;
+$button-close-background-color-secondary: $color-black;
+
+a.button-close,
+button.button-close {
+  @include text-invisible;
+
+  height: $button-close-size;
+  width: $button-close-size;
+  position: relative;
+  box-sizing: border-box;
+  line-height: $button-close-size;
+  display: inline-block;
+  border: $button-close-border-size solid $button-close-border-color;
+  border-radius: 100%;
+  background-color: rgba($button-close-background-color, 0.5);
+
+  &:before,
+  &:after {
+    transform: rotate(-45deg);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$button-close-border-size/2;
+    margin-left: -$button-close-size-icon/2;
+    display: block;
+    height: $button-close-border-size;
+    width: $button-close-size-icon;
+    background-color: $button-close-border-color;
+    transition: all 0.25s ease-out;
+  }
+
+  &:after {
+    transform: rotate(-135deg);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba($button-close-background-color, 0.8);
+
+    &:before,
+    &:after {
+      transform: rotate(0deg);
+    }
+  }
+
+  &:focus {
+    background-color: $button-close-background-color;
+  }
+}
+
+//
+// Bright Modifier
+//
+a.button-close--secondary,
+button.button-close--secondary {
+
+  border-color: $button-close-border-color-secondary;
+  background-color: rgba($button-close-background-color-secondary, .5);
+
+  &:before,
+  &:after {
+    background-color: $button-close-border-color-secondary;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba($button-close-background-color-secondary, .8);
+  }
+
+  &:focus {
+    background-color: $button-close-background-color-secondary;
+  }
+}

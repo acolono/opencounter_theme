@@ -1,0 +1,12 @@
+// status of a component
+
+.is-disabled {
+  @include content-disabled;
+  input,
+  select,
+  textarea {
+    // sass-lint:disable no-important
+    cursor: not-allowed !important;
+    // sass-lint:enable no-important
+  }
+}

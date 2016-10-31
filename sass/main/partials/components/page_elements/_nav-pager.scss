@@ -1,0 +1,103 @@
+// Navigation Pager
+//
+// Pagination for browsing through longer lists or tables.
+//
+// Markup:
+// <ul class="pager"><li class="pager__item pager__item--first"><a title="Zur ersten Seite" href="/news?fulltext=">« erste Seite</a></li>
+//   <li class="pager__item pager__item--previous"><a title="Zur vorherigen Seite" href="#">‹ vorherige Seite</a></li>
+//   <li class="pager__item"><a title="Gehe zu Seite 1" href="/news?fulltext=">1</a></li>
+//   <li class="pager__item pager__item--current">2</li>
+//   <li class="pager__item"><a title="Gehe zu Seite 3" href="/news?fulltext=&amp;page=2">3</a></li>
+//   <li class="pager__item"><a title="Gehe zu Seite 4" href="/news?fulltext=&amp;page=3">4</a></li>
+//   <li class="pager__item"><a title="Gehe zu Seite 5" href="/news?fulltext=&amp;page=4">5</a></li>
+//   <li class="pager__item"><a title="Gehe zu Seite 6" href="/news?fulltext=&amp;page=5">6</a></li>
+//   <li class="pager__item pager__item--ellipsis">…</li>
+//   <li class="pager__item pager__item--next"><a title="Zur nächsten Seite" href="/news?fulltext=&amp;page=2">nächste Seite ›</a></li>
+//   <li class="pager__item pager__item--last"><a title="Zur letzten Seite" href="/news?fulltext=&amp;page=16">letzte Seite »</a></li>
+// </ul>
+//
+// Styleguide 2.41
+
+
+$pager-button-size: 64px;
+
+.pager {
+  font-size: 0;
+  white-space: inherit;
+  @include reset-list();
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+  text-align: center;
+  //position: relative;
+
+  &__item {
+    @include set-font-size(15px);
+    color: $primary-font-color;
+    //position: relative;
+    height: $pager-button-size;
+    width: $pager-button-size;
+    display: inline-block;
+    font-family: $primary-font-family;
+    line-height: 64px;
+    overflow: hidden;
+
+    a {
+      color: $primary-font-color;
+      height: $pager-button-size;
+      width: $pager-button-size;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &--current {
+      color: $color-white;
+      cursor: default;
+      background-color: $color-primary;
+    }
+
+    &--ellipsis {
+    }
+
+    &--next,
+    &--previous {
+      a {
+        @include text-invisible;
+        width: $pager-button-size;
+        height: $pager-button-size;
+        display: inline-block;
+        transition: background-color $button-transition-speed ease-out, color $button-transition-speed ease-out;
+      }
+
+      a:hover {
+        background-color: $color-primary;
+      }
+    }
+
+    &--previous a {
+      background: image-url("arrow.svg") no-repeat center center transparent;
+      background-size: 64px 64px;
+      background-position: center center;
+      background-color: $color-secondary;
+      transform: rotate(180deg);
+    }
+
+    &--next a {
+      background: image-url("arrow.svg") no-repeat center center transparent;
+      background-size: 64px 64px;
+      background-position: center center;
+      background-color: $color-secondary;
+    }
+
+    //we hide the go to first and last element
+    &--first,
+    &--last {
+      @include element-invisible();
+    }
+  }
+}

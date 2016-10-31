@@ -1,0 +1,25 @@
+// Avatar default
+//
+// Userprofile picture. This is the default avatar.
+//
+// Markup:
+// <img class="avatar" typeof="foaf:Image" src="images/avatar-default.png" alt="default userpicture">
+//
+// Styleguide 1.3
+
+// Avatar uploaded
+//
+// Userprofile picture. This is the default avatar.
+//
+// Markup:
+// <img class="avatar" typeof="foaf:Image" src="images/styleguide/ao_person2.jpg" alt="the hoff's userpicture">
+//
+// Styleguide 1.3.1
+
+
+.avatar {
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  background-color: $color-primary;
+}
