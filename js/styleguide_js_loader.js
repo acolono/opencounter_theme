@@ -10,7 +10,8 @@
     // Add Scripts for components here
     var scripts = [
       '//code.jquery.com/jquery-migrate-1.2.1.min.js',
-      'js/styleguide_init.js'
+      'js/styleguide_init.js',
+      'js/counter.js'
       
     ];
     for (var i = 0; i < scripts.length; i++) {

@@ -36,6 +36,9 @@ global->entities->pages.
 //
 // Styleguide 2
 
+@import "components/page_elements/counter";
+@import "components/page_elements/_counter-form";
+
 @import "components/page_elements/header";
 @import "components/page_elements/menu-primary";
 @import "components/page_elements/menu-secondary";
@@ -50,13 +53,6 @@ global->entities->pages.
 //refactor this:
 @import "components/page_elements/messages";
 @import "components/page_elements/print"; //where to put this?
-
-
-// Admin
-//
-// Styleguide 5
-@import "components/admin/counter";
-@import "components/admin/counter-add";
 
 
 

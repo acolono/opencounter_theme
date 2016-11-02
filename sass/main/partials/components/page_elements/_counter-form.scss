@@ -1,0 +1,23 @@
+// Counter Form
+//
+// Userprofile picture. This is the default avatar.
+//
+// Markup:
+// <form action="{{ path_for('admin.counter.add', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
+//   <fieldset>
+//     <input name="name" type="name" placeholder="Name">
+//     <input name="value" type="number" value="0">
+//     <input name="status" placeholder="Status">
+//     <label>
+//      <span class="form__label">select<span><br>
+//       <select>
+//           <option>active</option>
+//           <option>inactive</option>
+//           <option>locked</option>
+//       </select>
+//     </label>
+//   </fieldset>
+//   <input id="submit" type="submit" class="button">
+// </form>
+//
+// Styleguide 2.302
