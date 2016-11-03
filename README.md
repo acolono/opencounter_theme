@@ -4,7 +4,7 @@
   │       │
   └───────┘
 
-a:o starter theme
+OpenCounter Theme
 
 **Installation**
 
@@ -30,6 +30,7 @@ KSS is a methodology for documenting CSS and generating styleguides
 After running $ gulp styleguide the sc5 styleguide is available under localhost:4000.
 
 **Copyright**
+acolono GmbH
 
 Christian Ziegler
 Nico Grienauer
