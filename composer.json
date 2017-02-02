@@ -14,7 +14,9 @@
     "pattern-lab/core": "^2.0.0",
     "pattern-lab/patternengine-twig": "^2.0.0",
     "pattern-lab/styleguidekit-twig-default": "^3.0.0",
-    "composer/installers": "~1.0"
+    "composer/installers": "~1.0",
+    "aleksip/plugin-data-transform": "^1.1",
+    "pattern-lab/plugin-data-inheritance": "^1.0"
   },
   "scripts": {
     "post-install-cmd": [
