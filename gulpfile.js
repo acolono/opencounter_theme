@@ -14,9 +14,9 @@ var gulp        = require('gulp'),
     filter      = require('gulp-filter'),
     git         = require('gulp-git'),
     gulpif      = require('gulp-if'),
-    imagemin    = require('gulp-imagemin'),
     rename      = require('gulp-rename'),
     tagversion  = require('gulp-tag-version'),
+    browserSync = require('browser-sync').create(),
     uglify      = require('gulp-uglify');
 
 // Trigger
@@ -31,7 +31,7 @@ gulp.task('patternlab', function () {
         .pipe(shell([
             'php core/console --generate'
         ]))
-    //.pipe(browserSync.reload({stream:true}));
+    // .pipe(browserSync.reload({stream:true}));
 });
 
 // Task: styleguide
@@ -43,21 +43,46 @@ gulp.task('styleguide', function() {
 
 gulp.task('sass', function () {
     return gulp.src(config.paths.sass.src)
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass(config.paths.sass.opts).on('error', sass.logError))
         .pipe(gulp.dest(config.paths.sass.dest))
+        // .pipe(browserSync.reload({stream:true}));
 });
 // task: BrowserSync
 // Description: Run BrowserSync server with disabled ghost mode
-gulp.task('browser-sync', function() {
-    browserSync({
+
+
+gulp.task('patternlab:connect', gulp.series(function(done) {
+    browserSync.init({
         server: {
             baseDir: config.root
         },
-        ghostMode: true,
-        open: "external"
+        snippetOptions: {
+            // Ignore all HTML files within the templates folder
+            blacklist: ['/index.html', '/', '/?*']
+        },
+        notify: {
+            styles: [
+                'display: none',
+                'padding: 15px',
+                'font-family: sans-serif',
+                'position: fixed',
+                'font-size: 1em',
+                'z-index: 9999',
+                'bottom: 0px',
+                'right: 0px',
+                'border-top-left-radius: 5px',
+                'background-color: #1B2032',
+                'opacity: 0.4',
+                'margin: 0',
+                'color: white',
+                'text-align: center'
+            ]
+        }
+    }, function(){
+        console.log('PATTERN LAB NODE WATCHING FOR CHANGES');
+        done();
     });
-});
-
+}));
 // ------------------------------------ Gulp Testing Message
 gulp.task('message', function(){
     console.log('It works!!');
