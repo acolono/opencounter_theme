@@ -41,3 +41,11 @@ jspm_packages
 /sc5_styleguide/
 
 vendor
+/public/
+.idea/copyright/
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/opencounter-theme.iml
+.idea/workspace.xml
+public

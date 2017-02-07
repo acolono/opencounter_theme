@@ -36,7 +36,8 @@ global->entities->pages.
 //
 // Styleguide 2
 
-@import "components/page_elements/counter";
+@import "../../_patterns/02-elements/01-counter/counter";
+
 @import "components/page_elements/_counter-form";
 
 @import "components/page_elements/header";

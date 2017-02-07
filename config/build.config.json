@@ -23,7 +23,7 @@
   },
   "paths" : {
     "sass": {
-      "src": "./source/scss/**/*.{scss,sass}",
+      "src": "./source/scss/*.{scss,sass}",
       "dest": "./public/css",
       "opts": {
         "includePaths": "./node_modules"

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% block head %}
-        {% block stylesheets %}
-            <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
-        {% endblock %}
-
-        <title>{% block title %}{% endblock %} - My Webpage</title>
+  {% block head %}
+    {% block stylesheets %}
     {% endblock %}
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+  {% endblock %}
 </head>
 <body>
-<div id="content">{% block content %}{% endblock %}</div>
-<div id="footer">
-    {% block footer %}
-        &copy; Copyright 2016 by <a href="http://domain.invalid/">you</a>.
-    {% endblock %}
+
+
+<div class="l-site">
+  <header role="banner" class="l-site__header">
+    {% block header %}
+      {% include  "elements-header" %}
+    {% endblock %}  </header>
+  {% block content %}
+
+  {% endblock %}
+  <footer class="l-site__footer" role="contentinfo">
+    <div class="l-site__footer-content">
+      {% block footer %}
+      {% endblock %}
+    </div>
+  </footer>
 </div>
+
 {% block javascripts %}
-    <script src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
 </body>
 </html>
