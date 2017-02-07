@@ -3,6 +3,7 @@
 <head>
   {% block head %}
     {% block stylesheets %}
+    <link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
     {% endblock %}
     <title>{% block title %}{% endblock %} - My Webpage</title>
   {% endblock %}
