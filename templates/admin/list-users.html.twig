@@ -1,0 +1,60 @@
+{% extends "04-layouts/00-default.twig" %}
+
+{% block content %}
+    <h1>All Users Listing</h1>
+
+    <div><a href="{{ base_url }}/admin/users/add" class="btn btn-info">Add New User</a></div>
+    <div class="bs-example">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>token</th>
+                <th>createdOn</th>
+                <th>email</th>
+                <th>invitationToken</th>
+                <th>lastLogin</th>
+                <th>password</th>
+                <th>rememberPasswordToken</th>
+                <th>roles</th>
+
+                <th colspan="2" align="center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if users %}
+                {% for row in users %}
+                    {{ dump(row) }}
+
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.token }}</td>
+                        <td>{{ row.createdOn }}</td>
+
+                        <td>{{ row.email }}</td>
+                        <td>{{ row.lastLogin }}</td>
+                        <td>{{ row.password }}</td>
+                        <td>{{ row.rememberPasswordToken }}</td>
+                        <td>{{ row.roles }}</td>
+
+
+                        <td><a href="{{ base_url }}/users/{{ row.user_id }}" class="btn btn-info">Edit</a></td>
+                        <td>
+                            <form action="{{ base_url }}/users" method="POST">
+                                <input class="btn btn-danger" type="submit" value="Delete">
+                                <input type="hidden" id="delete" name="delete" value="1">
+                                <input type="hidden" id="counter_id" name="user_id" value="{{ row.user_id }}">
+                            </form>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            {% else %}
+                <p>No records found</p>
+            {% endif %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
