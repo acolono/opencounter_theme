@@ -1,0 +1,16 @@
+{#{% trans_default_domain 'BenGorUser' %}#}
+{% block subject %}
+    {{ dump() }}
+
+    {{ 'ui.twig.views.email.sign_up.subject' | trans }}
+{% endblock %}
+
+{% block body_html %}
+    {{ dump() }}
+
+    {{ 'ui.twig.views.email.sign_up.body_html' | trans({'%email%': email, '%url%': url}) | raw }}
+{% endblock %}
+
+{% block body_text %}
+    {{ 'ui.twig.views.email.sign_up.body_text' | trans({'%email%': email, '%url%': url}) }}
+{% endblock %}
