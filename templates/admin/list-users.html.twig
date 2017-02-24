@@ -2,40 +2,35 @@
 
 {% block content %}
     <h1>All Users Listing</h1>
-
     <div><a href="{{ base_url }}/admin/users/add" class="btn btn-info">Add New User</a></div>
+
+
+
+
+
     <div class="bs-example">
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>token</th>
-                <th>createdOn</th>
                 <th>email</th>
-                <th>invitationToken</th>
                 <th>lastLogin</th>
-                <th>password</th>
-                <th>rememberPasswordToken</th>
+
                 <th>roles</th>
 
                 <th colspan="2" align="center">Actions</th>
             </tr>
             </thead>
             <tbody>
+
             {% if users %}
-                {% for row in users %}
-                    {{ dump(row) }}
-
+                {% for item in users %}
                     <tr>
-                        <td>{{ row.id }}</td>
-                        <td>{{ row.token }}</td>
-                        <td>{{ row.createdOn }}</td>
+                        <td> {{ item.id }}</td>
+                        <td> {{ item.email }}</td>
+                        <td> {{ item.lastLogin }}</td>
 
-                        <td>{{ row.email }}</td>
-                        <td>{{ row.lastLogin }}</td>
-                        <td>{{ row.password }}</td>
-                        <td>{{ row.rememberPasswordToken }}</td>
-                        <td>{{ row.roles }}</td>
+                        <td>{{ item.roles }}</td>
 
 
                         <td><a href="{{ base_url }}/users/{{ row.user_id }}" class="btn btn-info">Edit</a></td>
