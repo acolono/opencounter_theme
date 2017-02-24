@@ -1,0 +1,20 @@
+{% extends "@patterns/04-layouts/00-default.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Invite</h1>
+    <div>{{ value }}</div>
+
+    <form action="{{ path_for('admin.user.invite', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
+        <fieldset>
+            <input name="email" type="email" placeholder="email">
+        </fieldset>
+        <input id="submit" type="submit" class="button">
+    </form>
+{% endblock %}

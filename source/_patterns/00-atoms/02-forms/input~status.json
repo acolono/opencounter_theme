@@ -1,0 +1,7 @@
+{
+  "attributes": {
+    "type": "text",
+    "name": "status",
+    "placeholder": "status"
+  }
+}

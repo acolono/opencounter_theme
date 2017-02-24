@@ -1,0 +1,13 @@
+{% extends "@patterns/04-layouts/00-default.twig" %}
+{% block content %}
+    <h1>Login</h1>
+    <div>{{ value }}</div>
+
+    <form action="{{ path_for('users.login', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
+        <fieldset>
+            <input name="email" type="email" placeholder="email">
+            <input name="password" type="password" placeholder="password">
+        </fieldset>
+        <input id="submit" type="submit" class="button">
+    </form>
+{% endblock %}

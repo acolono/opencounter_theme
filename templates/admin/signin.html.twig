@@ -1,0 +1,24 @@
+{% extends "@patterns/04-layouts/00-default.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Signup</h1>
+    <div>{{ value }}</div>
+
+    <form action="{{ path_for('users.signup', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
+        <fieldset>
+            <input name="name" type="name" placeholder="name">
+            <input name="password" type="password" placeholder="password">
+            <input name="email" type="email" placeholder="email">
+        </fieldset>
+        <input id="submit" type="submit" class="button">
+    </form>
+{% endblock %}
