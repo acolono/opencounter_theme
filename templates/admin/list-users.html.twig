@@ -1,0 +1,55 @@
+{% extends "@patterns/04-layouts/00-default.twig" %}
+
+{% block content %}
+    <h1>All Users Listing</h1>
+    <div><a href="{{ base_url }}/admin/users/add" class="btn btn-info">Add New User</a></div>
+
+
+
+
+
+    <div class="bs-example">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>email</th>
+                <th>lastLogin</th>
+
+                <th>roles</th>
+
+                <th colspan="2" align="center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% if users %}
+                {% for item in users %}
+                    <tr>
+                        <td> {{ item.id }}</td>
+                        <td> {{ item.email }}</td>
+                        <td> {{ item.lastLogin }}</td>
+
+                        <td>{{ item.roles }}</td>
+
+
+                        <td><a href="{{ base_url }}/users/{{ row.user_id }}" class="btn btn-info">Edit</a></td>
+                        <td>
+                            <form action="{{ base_url }}/users" method="POST">
+                                <input class="btn btn-danger" type="submit" value="Delete">
+                                <input type="hidden" id="delete" name="delete" value="1">
+                                <input type="hidden" id="counter_id" name="user_id" value="{{ row.user_id }}">
+                            </form>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            {% else %}
+                <p>No records found</p>
+            {% endif %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

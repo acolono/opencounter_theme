@@ -1,0 +1,26 @@
+{% extends "@patterns/04-layouts/00-default.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Add User Form</h1>
+    <div>{{ value }}</div>
+
+    <form action="{{ path_for('admin.user.new', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
+        <fieldset>
+            <input name="username" type="username" placeholder="username">
+            <input name="password" type="password" placeholder="password">
+            <input name="firstName" placeholder="firstName">
+            <input name="lastName" placeholder="lastName">
+
+        </fieldset>
+        <input id="submit" type="submit" class="button">
+    </form>
+{% endblock %}

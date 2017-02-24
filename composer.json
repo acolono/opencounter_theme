@@ -1,0 +1,51 @@
+{
+  "name": "slimcounter/default_theme",
+  "description": "Standard Edition of Pattern Lab for Twig theme for opencounter",
+  "type": "vanilla-theme",
+  "version": "0.1.2-dev",
+
+  "autoload": {
+    "psr-0": {
+      "PatternLab":   "core/src/"
+    }
+  },
+  "require": {
+    "php": ">=5.4",
+    "pattern-lab/core": "^2.0.0",
+    "pattern-lab/patternengine-twig": "^2.0.0",
+    "pattern-lab/styleguidekit-twig-default": "^3.0.0",
+    "composer/installers": "~1.0",
+    "aleksip/plugin-data-transform": "^1.1",
+    "pattern-lab/plugin-data-inheritance": "^1.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PatternLab\\Installer::postInstallCmd"
+    ],
+    "post-update-cmd": [
+      "PatternLab\\Installer::postUpdateCmd"
+    ],
+    "post-root-package-install": [
+      "PatternLab\\Installer::setProjectInstall",
+      "PatternLab\\Installer::getSuggestedStarterKits",
+      "PatternLab\\Installer::getConfigOverrides"
+    ],
+    "post-package-install": [
+      "PatternLab\\Installer::postPackageInstall"
+    ],
+    "post-package-update": [
+      "PatternLab\\Installer::postPackageUpdate"
+    ],
+    "pre-package-uninstall": [
+      "PatternLab\\Installer::prePackageUninstall"
+    ]
+  },
+  "extra": {
+    "patternlab": {
+      "starterKitSuggestions": [
+        "pattern-lab/starterkit-twig-base",
+        "pattern-lab/starterkit-twig-demo"
+      ]
+    }
+  }
+}

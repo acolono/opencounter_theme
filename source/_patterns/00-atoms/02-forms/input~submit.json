@@ -1,0 +1,9 @@
+{
+  "attributes": {
+    "name": "edit-submit",
+    "type": "submit",
+    "value": "Submit",
+    "classes": "button button-primary"
+  }
+}
+

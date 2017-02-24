@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block head %}
+    {% block stylesheets %}
+    <link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
+    {% endblock %}
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+  {% endblock %}
+</head>
+<body>
+
+
+<div class="l-site">
+  <header role="banner" class="l-site__header">
+    {% block header %}
+    {% endblock %}  </header>
+  {% block content %}
+
+  {% endblock %}
+  <footer class="l-site__footer" role="contentinfo">
+    <div class="l-site__footer-content">
+      {% block footer %}
+      {% endblock %}
+    </div>
+  </footer>
+</div>
+
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>
