@@ -23,10 +23,6 @@ global->entities->pages.
 @import "components/atoms/badge";
 @import "components/atoms/ribbon";
 @import "components/atoms/form";
-@import "components/atoms/drop";
-@import "components/atoms/icon";
-@import "components/atoms/svg";
-@import "components/atoms/facebook-button";
 @import "components/atoms/menu-toggle";
 
 
@@ -43,9 +39,7 @@ global->entities->pages.
 @import "components/page_elements/header";
 @import "components/page_elements/menu-primary";
 @import "components/page_elements/menu-secondary";
-@import "components/page_elements/hoverslide";
 @import "components/page_elements/nav-skip-link";
-@import "components/page_elements/nav-back-to-top";
 @import "components/page_elements/nav-breadcrumb";
 @import "components/page_elements/nav-pager";
 
@@ -53,8 +47,6 @@ global->entities->pages.
 
 //refactor this:
 @import "components/page_elements/messages";
-@import "components/page_elements/print"; //where to put this?
-
 
 
 // Pages

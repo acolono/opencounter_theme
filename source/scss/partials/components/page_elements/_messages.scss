@@ -14,11 +14,6 @@
 // </div>
 //
 // Styleguide 2.29
-// Import relevant animation library mixins.
-@import "../../utility/abstractions/animate/properties";
-// @import "../../utility/abstractions/animate/_zooming-exits/_zoomOutRight";
-// @import "../../utility/abstractions/animate/_zooming-entrances/_zoomIn";
-@import "../../utility/abstractions/animate/_bouncing-entrances/bounceIn";
 
 $message-info-bg-color: $color-gray--light;
 $message-warning-bg-color: rgba(204, 107, 14, 0);
@@ -31,13 +26,6 @@ $message-error-bg-color: $color-error;
   padding: 0 rhythm(2) 0 rhythm(1);
   @include set-font-size(14px, 1);
   @include rhythm-spacing(1, 1, .5, .5);
-  // sass-lint:disable mixin-name-format
-  @include bounceIn(
-    $duration: 1s,
-    $delay: .5s,
-    $function: ease
-  );
-  // sass-lint:enable mixin-name-format
   display: block;
   background-color: $color-white--dark;
 
@@ -128,10 +116,6 @@ $message-error-bg-color: $color-error;
 }
 
 .message--closed {
-  //@include zoomOutRight(
-  //$duration: 1s,
-  //$delay: 0s,
-  //$function: ease);
   display: none;
   opacity: 0;
 }
