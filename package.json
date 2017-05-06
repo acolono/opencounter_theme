@@ -1,6 +1,6 @@
 {
   "name": "SlimcounterDefaulttheme",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "devDependencies": {
     "autoprefixer": "~6.3.5",
     "breakpoint-sass": "~2.7.0",
