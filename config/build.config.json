@@ -24,7 +24,7 @@
   "paths" : {
     "sass": {
       "src": "./source/scss/*.{scss,sass}",
-      "dest": "./public/css",
+      "dest": "./public/assets/css",
       "opts": {
         "includePaths": "./node_modules"
       }
@@ -41,9 +41,10 @@
     "base": "source/assets/components/"
   },
   "scss": {
-    "base" : "source/assets/scss/",
+    "base" : "source/scss/",
     "files": [
-      "source/assets/scss/**/*.scss"
+      "./source/scss/**/*.scss",
+      "./source/_patterns/**/*.scss"
     ],
     "dest" : "public/assets/stylesheets/"
   },

@@ -1,46 +1,8 @@
-{% extends "@patterns/04-layouts/00-default.twig" %}
+{% extends "@patterns/05-layouts/00-default.twig" %}
 
 {% block content %}
     <h1>All Clients Listing</h1>
-    <div><a href="{{ base_url }}/admin/clients/add" class="btn btn-info">Add New Client</a></div>
-    <div class="bs-example">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Value</th>
-                <th>Status</th>
-                <th>Password</th>
-                <th colspan="2" align="center">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% if data %}
+    {% include "@atoms/05-buttons/01-button.twig" with {text: 'Add New Client', url: '/admin/clients/add'} %}
+    {% include "@elements/22-clients/clients-list.twig" %}
 
-                {% for row in data %}
-                    <tr>
-                        <td>{{ row.client_id }}</td>
-                        <td>{{ row.user_id }}</td>
-                        <td>{{ row.grant_types }}</td>
-                        <td>{{ row.client_secret }}</td>
-                        <td>{{ row.scope }}</td>
-                        <td>{{ row.redirect_uri }}</td>
-                        <td><a href="{{ base_url }}/clients/{{ row.client_id }}" class="btn btn-info">View/Edit</a></td>
-                        <td>
-                            <form action="{{ base_url }}/clients" method="POST">
-                                <input class="btn btn-danger" type="submit" value="Delete">
-                                <input type="hidden" id="delete" name="delete" value="1">
-                                <input type="hidden" id="counter_id" name="counter_id" value="{{ row.counter_id }}">
-                            </form>
-                        </td>
-                    </tr>
-
-                {% endfor %}
-            {% else %}
-                <p>No records found</p>
-            {% endif %}
-            </tbody>
-        </table>
-    </div>
 {% endblock %}

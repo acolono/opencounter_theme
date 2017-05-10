@@ -44,7 +44,7 @@ gulp.task('sass', function () {
     return gulp.src(config.paths.sass.src)
         .pipe(sass(config.paths.sass.opts).on('error', sass.logError))
         .pipe(gulp.dest(config.paths.sass.dest))
-        // .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({stream:true}));
 });
 // task: BrowserSync
 // Description: Run BrowserSync server with disabled ghost mode
@@ -80,6 +80,7 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
     }, function(){
         console.log('PATTERN LAB NODE WATCHING FOR CHANGES');
         done();
+
     });
 }));
 // ------------------------------------ Gulp Testing Message
@@ -89,7 +90,7 @@ gulp.task('message', function(){
 
 // ---------------------------------------------- Gulp Watch
 gulp.task('watch:styles', function () {
-    gulp.watch(config.paths.sass.src, gulp.series('sass'));
+    gulp.watch(config.scss.files, gulp.series('sass'));
 });
 
 gulp.task('watch', gulp.series('sass',
@@ -98,7 +99,7 @@ gulp.task('watch', gulp.series('sass',
 
 
 // -------------------------------------------- Default task
-gulp.task('default', gulp.series('sass',
+gulp.task('default', gulp.series('patternlab', 'sass', 'patternlab:connect',
     gulp.parallel('message', 'watch')
 ));
 

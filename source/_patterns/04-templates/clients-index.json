@@ -1,0 +1,30 @@
+{
+  "data" :{
+    "first": {
+      "redirect_uri": "/someurl",
+      "scope": "read:counters",
+      "client_secret": "client_secret",
+      "user_id": "123",
+      "client_id": "123",
+      "grant_types": "read:authorization_code implicit client_credentials"
+    },
+    "second": {
+      "redirect_uri": "http://172.25.0.5/o2c.html",
+      "scope": "read:counters",
+      "client_secret": "client_secret",
+      "user_id": "456",
+      "client_id": "456",
+      "grant_types": "read:authorization_code implicit client_credentials"
+    },
+    "third": {
+      "redirect_uri": "http://172.25.0.5/o2c.html",
+      "scope": "read:counters",
+      "client_secret": "client_secret",
+      "user_id": "678",
+      "client_id": "678",
+      "grant_types": "read:authorization_code implicit client_credentials"
+    }
+  }
+
+
+}

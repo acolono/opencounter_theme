@@ -1,0 +1,18 @@
+{% extends "@layouts/00-default.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Edit User Form</h1>
+
+    <form action="{{ link.pages-admin-counter2-view }}"
+          method="post"> <!-- Used route name in action -->
+        {% include "@elements/22-clients/clients-form.twig" %}
+    </form>
+{% endblock %}
+
