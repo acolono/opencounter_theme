@@ -1,0 +1,13 @@
+{% import "forms.macro.twig" as forms %}
+
+<fieldset>
+    {{ forms.text_input("client_id") }}
+    {{ forms.text_input("client_secret") }}
+    {{ forms.text_input("redirect_uri") }}
+    {{ forms.text_input("grant_types") }}
+    {{ forms.text_input("scopes") }}
+    {{ forms.text_input("user_id") }}
+
+</fieldset>
+{% include "@atoms/02-forms/_input.twig" with {attributes: {name: 'submit',value: 'submit', type: 'submit', attributes: 'button'}} only %}
+

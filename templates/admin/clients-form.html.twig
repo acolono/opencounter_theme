@@ -1,30 +1,20 @@
-{% extends "@patterns/04-layouts/00-default.twig" %}
+{% extends "@patterns/05-layouts/00-default.twig" %}
 
 {% block head %}
     {{ parent() }}
     <style type="text/css">
-        .important { color: #336699; }
+        .important {
+            color: #336699;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
     <h1>Add User Form</h1>
-    <div>{{ value }}</div>
+    <form action="{{ path_for('admin.client.new', { 'name': name }) }}"
+          method="post"> <!-- Used route name in action -->
 
-    <form action="{{ path_for('admin.client.new', { 'name': name }) }}" method="post"> <!-- Used route name in action -->
-        <fieldset>
-            {#TODO: generate client id and secret or at least secret#}
-            <input name="client_id" type="name" placeholder="client_id">
-            <input name="client_secret" type="value" placeholder="client_secret">
-            {#TODO: describe what this does to admins#}
-            <input name="redirect_uri" placeholder="http://172.25.0.5/o2c.html">
-            {#TODO: dont need to allow to choose grant type#}
-            <input name="grant_types" placeholder="authorization_code implicit client_credentials">
-            {#TODO: select available scopes#}
-            <input name="scopes" placeholder="read:counters">
-            <input name="user_id" placeholder="1">
-        </fieldset>
-        <input id="submit" type="submit" class="button">
+        {% include "@elements/22-clients/clients-form.twig" %}
     </form>
 {% endblock %}
 

@@ -1,0 +1,8 @@
+{% extends "@layouts/00-default.twig" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% include "@atoms/05-buttons/01-button.twig" with {text: 'Add New Client', url: link.templates-client-form } %}
+    {% include "@elements/22-clients/clients-list.twig" %}
+
+{% endblock %}

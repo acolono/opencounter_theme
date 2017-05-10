@@ -1,5 +1,8 @@
 {
   "attributes": {
+    "classes": "text",
+    "name": "text",
+    "placeholder": "text",
     "type": "text"
   }
 }
