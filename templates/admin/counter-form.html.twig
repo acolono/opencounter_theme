@@ -1,3 +1,5 @@
+{% import "forms.macro.twig" as forms %}
+
 {% extends "@patterns/05-layouts/00-default.twig" %}
 
 {% block head %}
@@ -10,8 +12,12 @@
 {% endblock %}
 
 {% block content %}
-    <h1>bbb Counter Form</h1>
+    <h1>Counter Form</h1>
+    <form action="{{ path_for('admin.counter.add', { 'name': name }) }}"
+          method="post"> <!-- Used route name in action -->
 
-    {% include "@elements/21-counter/counter-form.twig" %}
+        {% include "@elements/21-counter/counter-form.twig" %}
+
+    </form>
 
 {% endblock %}

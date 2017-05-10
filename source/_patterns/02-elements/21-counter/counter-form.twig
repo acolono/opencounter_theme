@@ -1,9 +1,9 @@
-<form action="pathtopostto" method="post"> <!-- Used route name in action -->
-    <fieldset>
+{% import "forms.macro.twig" as forms %}
 
-        {{ forms.text_input("slug") }}
-        {{ forms.text_input("value") }}
-        {{ forms.text_input("status") }}
-    </fieldset>
-    {% include "@atoms/02-forms/_input.twig" with {attributes: {name: 'submit',value: 'submit', type: 'submit', attributes: 'button'}} only %}
-</form>
+<fieldset>
+
+    {{ forms.text_input("slug") }}
+    {{ forms.text_input("value") }}
+    {{ forms.text_input("status") }}
+</fieldset>
+{% include "@atoms/02-forms/_input.twig" with {attributes: {name: 'submit',value: 'submit', type: 'submit', attributes: 'button'}} only %}

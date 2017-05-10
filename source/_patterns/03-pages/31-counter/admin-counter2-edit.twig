@@ -9,6 +9,10 @@
 
 {% block content %}
     <h1>Add Counter Form</h1>
-    {% include "@elements/21-counter/counter-form.twig" %}
+    <form action="{{ name }}"
+          method="post"> <!-- Used route name in action -->
 
+        {% include "@elements/21-counter/counter-form.twig" %}
+
+    </form>
 {% endblock %}
