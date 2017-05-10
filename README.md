@@ -6,9 +6,20 @@
 
 OpenCounter Theme
 
-**Installation**
+**Requirements**
 
-run $ npm install
+In order to run this, you need gulp-cli installed globally
+
+    $ npm install -g gulp-cli
+
+**Installation**
+Clone this repository
+
+Go into your project folder
+
+    $ git clone git@github.com:acolono/opencounter_theme.git
+    $ cd opencounter_theme
+    $ npm install
 
 For browsersync change the proxy variable in gulp/config.js to your needs.
 
@@ -18,12 +29,9 @@ $ gulp sass: Compile all sass files (gulpfile.js will compile from config.paths.
 
 **Styleguide**
 
-$ gulp patternlab to build styleguide
-$ gulp patternlab:connect to run styleguide in browser
- 
-for developing styleguide components.
+    $ gulp
 
-(no watch command implemented yet)
+for developing styleguide components.
 
 **Copyright**
 acolono GmbH
