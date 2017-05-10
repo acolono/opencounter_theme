@@ -2,7 +2,11 @@
 
 {% block content %}
     <h1>View Counter {{ name }}</h1>
-    {% include "@elements/21-counter/counter.twig" %}
+    <form action="{{ name }}"
+          method="post"> <!-- Used route name in action -->
 
+        {% include "@elements/21-counter/counter-form.twig" %}
+
+    </form>
 
 {% endblock %}
