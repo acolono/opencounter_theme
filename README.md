@@ -28,5 +28,5 @@ for developing styleguide components.
 **Copyright**
 acolono GmbH
 
-Christian Ziegler
 Nico Grienauer
+Luis Rosenstrauch
