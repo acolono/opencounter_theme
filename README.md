@@ -20,6 +20,7 @@ Go into your project folder
     $ git clone git@github.com:acolono/opencounter_theme.git
     $ cd opencounter_theme
     $ npm install
+    $ composer install
 
 For browsersync change the proxy variable in gulp/config.js to your needs.
 
