@@ -1,12 +1,42 @@
-/*Importing components*/
+//
+// base (mostly browser resets!)
+//
 
-/* We don't need every component for every project. So we try to have a folder
-structure that allows us to enable/disable importing project wise. So for
-we have a folder for all commmerce stuff.
-And to have at least some structure we also try to separate small elements and
-real components from stylings for full pages and full entities:
-global->entities->pages.
-*/
+@import "../../_patterns/base/base";
+@import "../../_patterns/base/blockquote";
+@import "../../_patterns/base/definition-list";
+@import "../../_patterns/base/fieldset";
+@import "../../_patterns/base/figure";
+@import "../../_patterns/base/form";
+@import "../../_patterns/base/image";
+@import "../../_patterns/base/list";
+@import "../../_patterns/base/media";
+@import "../../_patterns/base/status";
+@import "../../_patterns/base/table";
+@import "../../_patterns/base/typography";
 
+
+
+
+
+
+
+
+
+
+
+
+//
+// atoms
+//
+@import "../../_patterns/00-atoms/03-ribbon/_ribbon";
+
+@import "../../_patterns/00-atoms/00-site-logo";
+
+
+//
+// elements
+//
+@import "../../_patterns/02-elements/20-global/header";
 @import "../../_patterns/02-elements/21-counter/counter";
 @import "../../_patterns/02-elements/21-counter/_counter-form";

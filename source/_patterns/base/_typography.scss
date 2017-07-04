@@ -1,0 +1,109 @@
+// Set vertical rythm font-size and line-height.
+@include establish-baseline;
+
+body {
+  font-family: $primary-font-family;
+  color: $primary-font-color;
+  font-weight: $primary-font-weight;
+
+  ::selection {
+    background-color: $color-primary;
+    color: #fff;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $secondary-font-family;
+  //@include word-wrap();
+  @include rhythm-spacing(0, 1, 0, 0);
+}
+
+h1 {
+  @include set-font-size($font-size-l);
+  @include breakpoint($l-tablet-up) {
+    @include set-font-size($font-size-xl);
+  }
+}
+
+h2 {
+  @include set-font-size($font-size-xl);
+}
+
+h3 {
+  @include set-font-size($font-size-l);
+}
+
+h4 {
+  @include set-font-size($font-size-m);
+}
+
+h5 {
+  @include set-font-size($font-size-m);
+}
+
+h6 {
+  @include set-font-size($font-size-m);
+}
+
+p:not(:last-of-type) {
+  @include rhythm-spacing(0, 1, 0, 0);
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+code {
+  @include set-font-size($font-size-m);
+
+  white-space: pre-wrap;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-family: Fixedsys, Courier, monospace;
+}
+
+a {
+  cursor: pointer;
+  color: $color-primary;
+  //text-decoration: none;
+}
+
+a:visited {
+  color: $color-primary;
+}
+
+a:active {
+  color: $color-primary;
+}
+
+a:hover,
+a:focus {
+  color: $color-secondary;
+  //text-decoration: underline;
+
+  h1 &,
+  h2 &,
+  h3 &,
+  h4 &,
+  h5 &,
+  h6 & {
+    text-decoration: none;
+  }
+}
+
+small {
+  @include set-font-size($font-size-s);
+}
