@@ -9,6 +9,7 @@ OpenCounter Theme
 **Installation**
 
 run $ npm install
+run $ composer install
 
 For browsersync change the proxy variable in gulp/config.js to your needs.
 
