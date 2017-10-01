@@ -1,0 +1,75 @@
+// Header Layout
+//
+// Markup:
+//  <div class="header">
+//    <!-- logo --><sg-insert>1.1.1</sg-insert>
+//    <!-- primary menu --><sg-insert>2.17.2</sg-insert>
+//    <!-- user menu --><sg-insert>2.35</sg-insert>
+//    <!-- mobile menu toggle --><sg-insert>4.101</sg-insert>
+//  </div>
+//
+// Styleguide 4.100
+
+//content specific settings
+
+.header {
+  //@include alpha-color($color-black, .92, #fff); //moved to l-site component header, because of position fixed bg
+  display: flex;
+  @include breakpoint($l-tablet-up) {
+    padding-top: rhythm(.5);
+    padding-bottom: rhythm(.5);
+  }
+
+  .site-logo-icon {
+    margin-top: rhythm(.25);
+    margin-right: rhythm(1);
+    flex-shrink: 0;
+    flex-grow: 1;
+    //hack
+    min-width: 56px;
+  }
+
+  > .block-ao-quicksearch {
+    margin: auto;
+    max-width: 550px;
+  }
+
+  > .menu-primary {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+  }
+
+  .user-login-button {
+    display: none;
+  }
+
+  > .user-menu {
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0;
+    display: none;
+  }
+
+  > .mobile-menu {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-left: auto;
+
+  }
+
+  @include breakpoint ($l-mobile-menu-toggle) {
+    .mobile-menu {
+      display: none;
+    }
+
+    .user-login-button {
+      display: flex;
+    }
+    .menu-primary,
+    .user-menu {
+      display: block;
+    }
+  }
+}

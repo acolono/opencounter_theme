@@ -6,13 +6,5 @@
 
 @import "utility/dependencies";
 
-// Import layouts.
-@import "layout/layout-default"; // content, sidebars
-
-@import 'layout/l-site-default/l-site-default';
-
-@import "layout/section";
-
-@import "layout/fieldset";
-@import "layout/block";
+@import "../../_patterns/05-layouts/l-header";
 

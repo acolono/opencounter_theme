@@ -18,14 +18,15 @@ h3,
 h4,
 h5,
 h6 {
-  @include word-wrap();
+  font-family: $secondary-font-family;
+  //@include word-wrap();
   @include rhythm-spacing(0, 1, 0, 0);
 }
 
 h1 {
-  @include set-font-size($font-size-xl);
+  @include set-font-size($font-size-l);
   @include breakpoint($l-tablet-up) {
-    @include set-font-size($font-size-xxl);
+    @include set-font-size($font-size-xl);
   }
 }
 
@@ -49,12 +50,8 @@ h6 {
   @include set-font-size($font-size-m);
 }
 
-p {
+p:not(:last-of-type) {
   @include rhythm-spacing(0, 1, 0, 0);
-
-  &:last-child:last-of-type {
-    margin-bottom: 0;
-  }
 }
 
 strong {

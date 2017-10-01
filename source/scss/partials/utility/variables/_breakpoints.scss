@@ -1,11 +1,10 @@
-@import "grid";
 // Generic breakpoints.
 $l-mobile-up: 390px, "no-query" true;
 $l-mobile: 390px 768px, "no-query" true; //just Mobile
 
-$l-to-phablet: 0 549px, "no-query" true;
-$l-phablet-up: 550px, "no-query" true;
-$l-phablet: 549px 780px, "no-query" true; //just Tablet
+$l-to-phablet: 0 649px, "no-query" true;
+$l-phablet-up: 650px, "no-query" true;
+$l-phablet: 649px 780px, "no-query" true; //just Tablet
 
 
 $l-to-tablet: 0 768px, "no-query" true;
@@ -16,4 +15,8 @@ $l-to-desktop: 0 1219px, "no-query" true;
 $l-desktop-up: 1220px, "no-query" true;
 
 $l-panels-beside: 769px, "no-query" true; // Sidebars break into a single one.
-$l-content-max: $max-content-width, "no-query" true; // Maximal width for content area.
+$l-content-max: 960px, "no-query" true; // Maximal width for content area.
+
+
+$l-mobile-menu-toggle: 730px; // to show burger menu and hide main menu
+$l-to-mobile-menu-toggle: 0 ($l-mobile-menu-toggle - 1);
