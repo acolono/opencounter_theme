@@ -1,0 +1,8 @@
+.header {
+  background-color: $color-primary;
+  max-height: rhythm(2);
+  .site-logo img {
+    max-height: 100%;
+    width:auto;
+  }
+}
