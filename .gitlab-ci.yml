@@ -4,11 +4,12 @@ stages:
 - deploy
 
 # composer install dependencies
-build-composer:
+build-php:
   stage: setup
   image: edbizarro/gitlab-ci-pipeline-php:latest
   script:
     - composer install --no-dev --prefer-dist --no-interaction
+    - php core/console --generate
   artifacts:
     name: "$CI_BUILD_REF"
     untracked: true
