@@ -98,6 +98,9 @@ gulp.task('watch', gulp.series('sass',
 ));
 
 
+// -------------------------------------------- build task
+gulp.task('build', gulp.series('sass'
+));
 // -------------------------------------------- Default task
 gulp.task('default', gulp.series('patternlab', 'sass', 'patternlab:connect',
     gulp.parallel('message', 'watch')
