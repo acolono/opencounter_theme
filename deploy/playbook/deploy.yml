@@ -1,0 +1,9 @@
+---
+- name: Deploy opencounter default theme styleguide
+  hosts: all
+  vars:
+    ansistrano_deploy_from: "{{ playbook_dir }}/../../public/"
+    ansistrano_keep_releases: 3
+    ansistrano_deploy_via: rsync
+  roles:
+    - { role: carlosbuenosvinos.ansistrano-deploy }

@@ -14,7 +14,7 @@ build-php:
     name: "$CI_BUILD_REF"
     untracked: true
     paths:
-      - vendor
+      - public
     expire_in: 1 week
 
 build-npm:
