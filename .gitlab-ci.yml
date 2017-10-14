@@ -1,7 +1,3 @@
-image: tmaier/docker-compose:17.03
-services:
-  - docker:dind
-
 stages:
 - setup
 - build
@@ -53,13 +49,6 @@ stage:
     # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
 
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-
-    - echo "$DEPLOY_KEY" > ~/.ssh/remote_key
-    - ssh-add -L
-    - chmod 600 ~/.ssh/remote_key
-    - ssh-add ~/.ssh/remote_key
   script:
     - cd deploy/playbook
     - ansible-playbook -i hosts.yml deploy.yml --extra-vars "ansible_host=${DEPLOY_TARGET_HOST} ansible_user=${DEPLOY_TARGET_USER} ansistrano_deploy_to=${ANSIBLE_STAGE_PATH}"
@@ -80,31 +69,15 @@ production:
   stage: deploy
   image: nilportugues/ansistrano
   before_script:
-    # Install ssh-agent if not already installed, it is required by Docker.
-    # (change apt-get to yum if you use a CentOS-based image)
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+     # Install ssh-agent if not already installed, it is required by Docker.
+     # (change apt-get to yum if you use a CentOS-based image)
+     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
 
-    # Run ssh-agent (inside the build environment)
-    - eval $(ssh-agent -s)
+     # Run ssh-agent (inside the build environment)
+     - eval $(ssh-agent -s)
 
-    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-
-    # For Docker builds disable host key checking. Be aware that by adding that
-    # you are suspectible to man-in-the-middle attacks.
-    # WARNING: Use this only with the Docker executor, if you use it with shell
-    # you will overwrite your user's SSH config.
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    # In order to properly check the server's host key, assuming you created the
-    # SSH_SERVER_HOSTKEYS variable previously, uncomment the following two lines
-    # instead.
-    # - mkdir -p ~/.ssh
-    # - '[[ -f /.dockerenv ]] && echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts'
-    - echo "$DEPLOY_KEY" > ~/.ssh/remote_key
-    - ssh-add -L
-    - chmod 600 ~/.ssh/remote_key
-    - ssh-add ~/.ssh/remote_key
+     # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+     - ssh-add <(echo "$SSH_PRIVATE_KEY")
   script:
     - cd deploy/playbook
     - ansible-playbook -i hosts.yml deploy.yml --extra-vars "ansible_host=${DEPLOY_TARGET_HOST} ansible_user=${DEPLOY_TARGET_USER} ansistrano_deploy_to=${ANSIBLE_PROD_PATH}"
