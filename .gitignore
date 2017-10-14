@@ -49,3 +49,5 @@ vendor
 .idea/opencounter-theme.iml
 .idea/workspace.xml
 public
+
+deploy/playbook/roles

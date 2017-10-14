@@ -19,17 +19,18 @@
     {% if data %}
     {% for row in data %}
     <tr>
-      <td>{{ row.counter_id }}</td>
+      <td>{{ row.id }}</td>
       <td>{{ row.name }}</td>
       <td>{{ row.value }}</td>
       <td>{{ row.status }}</td>
       <td>{{ row.email }}</td>
-      <td><a href="{{base_url}}/counters/{{row.counter_id}}" class="btn btn-info">Edit</a></td>
+      <td><a href="{{ base_url }}/counters/{{ row.id }}" class="btn btn-info">Edit</a>
+      </td>
       <td>
         <form action="{{base_url}}/counters" method="POST">
           <input class="btn btn-danger" type = "submit" value ="Delete">
           <input type="hidden" id="delete" name="delete" value="1">
-          <input type="hidden" id="counter_id" name="counter_id" value="{{row.counter_id}}">
+          <input type="hidden" id="id" name="id" value="{{ row.id }}">
         </form>
       </td>
     </tr>
