@@ -1,15 +1,10 @@
 // Counter
 //
-// Userprofile picture. This is the default avatar.
-//
 // Markup:
-// <a class="counter" href="#edit">
+// <div class="counter">
 //   <h2 class="counter__name">CounterName</h2>
 //   <span class="counter__value">103</span>
-// </a>
-//
-// Styleguide 2.301
-
+// </div>
 
 .counter {
   position: relative;
@@ -19,30 +14,6 @@
   text-decoration: none;
   display: block;
   color: $color-primary;
-  &:hover {
-    color: $color-primary;
-  }
-
-
-  &:after {
-    content: 'edit';
-    background-color: $color-primary;
-    color: $color-white;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity .15s ease-in-out;
-    text-transform: uppercase;
-  }
-  &:hover::after {
-    opacity: 1;
-  }
   &__name {
     @include set-font-size($font-size-l);
     font-family: $tertiary-font-family;

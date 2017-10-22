@@ -1,0 +1,15 @@
+// Counter
+//
+// Markup:
+// <div class="hitcounter">
+//   <span class="hitcounter__value">103</span>
+// </div>
+
+.hitcounter {
+  color: $color-primary;
+  font-family: $secondary-font-family;
+  @include set-font-size($font-size-m);
+  &__value {
+    background-image: image-url("hit.svg");
+  }
+}
