@@ -73,7 +73,7 @@
 }
 
 /* Function to emulate compass image-url function */
-$image-path: "../images" !default;
+$image-path: "/images" !default;
 @function image-url($asset) {
   @return url("#{$image-path}/#{$asset}");
 }

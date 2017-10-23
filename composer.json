@@ -1,8 +1,8 @@
 {
-  "name": "slimcounter/default_theme",
-  "description": "Standard Edition of Pattern Lab for Twig theme for opencounter",
+  "name": "acolono/opencounter_theme",
+  "description": "Pattern Lab for Twig theme for opencounter",
   "type": "vanilla-theme",
-  "version": "1.0.8",
+  "version": "1.1.0",
 
   "autoload": {
     "psr-0": {
