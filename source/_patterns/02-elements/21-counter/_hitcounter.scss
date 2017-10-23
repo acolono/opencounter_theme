@@ -6,10 +6,13 @@
 // </div>
 
 .hitcounter {
-  color: $color-primary;
+  color: $color-black;
   font-family: $secondary-font-family;
   @include set-font-size($font-size-m);
   &__value {
     background-image: image-url("hit.svg");
+    background-size: 27px 19px;
+    background-repeat: no-repeat;
+    padding-left: 28px;
   }
 }
